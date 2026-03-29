@@ -424,3 +424,89 @@ a { text-decoration: none; color: inherit; }
 .power-card p, .discipline-card p { margin-bottom: 0; }
 /* Evitar que Bootstrap coloree links dentro de nuestros cards */
 .discipline-card a, .power-card a { color: inherit; }
+
+/* ─── Star button (favoritos) ─── */
+.star-btn {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  z-index: 4;
+  background: rgba(0,0,0,0.65);
+  border: 1px solid #2e2040;
+  border-radius: 50%;
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: #504840;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 0;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.star-btn:hover { color: #c9a84c; border-color: #8a6a2a; }
+.star-btn--filled { color: #c9a84c; border-color: #8a6a2a; }
+
+/* ─── Discipline group icon (Mis Poderes) ─── */
+.disc-group-icon {
+  width: 2.2rem; height: 2.2rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ─── Star empty state icon ─── */
+.star-empty-icon {
+  font-size: 3.5rem;
+  color: #504840;
+  line-height: 1;
+}
+
+/* ─── App navbar ─── */
+.app-navbar {
+  background: rgba(13,11,20,0.97) !important;
+  border-bottom: 1px solid #2e2040;
+  backdrop-filter: blur(8px);
+}
+.app-navbar-brand {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff !important;
+  text-shadow: 0 0 16px rgba(139,0,0,0.6);
+  text-decoration: none;
+}
+.app-navbar-toggler {
+  border-color: #2e2040 !important;
+  padding: 0.3rem 0.5rem;
+}
+.app-navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28212,201,184,0.75%29' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+.app-nav-link {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: #8a7f70 !important;
+  padding: 0.45rem 0.85rem !important;
+  border-radius: 6px;
+  transition: color var(--transition), background var(--transition);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.app-nav-link:hover  { color: #d4c9b8 !important; background: #1a1628; }
+.app-nav-link.active { color: #c9a84c !important; }
+
+.app-nav-badge {
+  background: #8b0000;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 18px; height: 18px;
+  border-radius: 9px;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0 4px;
+  line-height: 1;
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}

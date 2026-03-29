@@ -35,20 +35,10 @@ function goTo(id: string) {
 
       <h1 class="font-title fw-black tracking-widest text-uppercase lh-sm position-relative"
           style="font-size: clamp(1.8rem,5vw,3.2rem); color:#fff; text-shadow: 0 0 30px rgba(139,0,0,0.8), 0 2px 4px rgba(0,0,0,0.8);">
-        V5 Support Tool
+        Disciplinas
       </h1>
-      <p class="text-parchment-dim tracking-widest text-uppercase small mt-2 mb-0">
-        Vampiro: La Mascarada · 5ª Edición
-      </p>
 
-      <!-- Blood drips -->
-      <div class="blood-drips">
-        <div class="blood-drip"></div>
-        <div class="blood-drip"></div>
-        <div class="blood-drip"></div>
-        <div class="blood-drip"></div>
-        <div class="blood-drip"></div>
-      </div>
+
     </header>
 
     <!-- ── Search ── -->

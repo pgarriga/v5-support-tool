@@ -1,33 +1,40 @@
-# Vampiro: La Mascarada V5 — Disciplinas
+# V5 Support Tool — Vampiro: La Mascarada 5ª Edición
 
-Herramienta de consulta rápida para partidas de rol de **Vampiro: La Mascarada 5ª Edición**. Web estática sin backend pensada para tener a mano disciplinas y poderes en mesa.
+Herramienta de soporte para partidas de rol de **Vampiro: La Mascarada 5ª Edición**. Web estática sin backend pensada para consultar disciplinas, poderes y gestionar los poderes del personaje en mesa.
 
 ## Stack
 
-- **Vue 3** via CDN
+- **Vue 3** + **TypeScript** — SFCs con Composition API (`<script setup>`)
 - **Vue Router 4** con hash history (`#/ruta`)
-- **Tailwind CSS v3** — gestión de responsive vía clases utilitarias (`xs:`, `sm:`, `md:`, `lg:`, `2xl:`)
-- **PostCSS + Autoprefixer** — proceso de build del CSS
+- **Bootstrap 5** — navbar, grid responsive y utilidades CSS (CSS + JS bundle)
+- **Vite 6** — bundler y servidor de desarrollo
 - **Google Fonts**: Cinzel Decorative (títulos) + Cormorant Garamond (cuerpo)
-
-Requiere build de CSS antes de abrir. Ver sección "Ejecutar en local".
 
 ## Estructura de archivos
 
 ```
-V5 Discipline Finder/
-├── index.html                   # Shell de la app
-├── CLAUDE.md
-├── package.json                 # Scripts de build (dev/build)
-├── tailwind.config.js           # Config Tailwind: colores, fuentes, breakpoints custom
-├── postcss.config.js            # PostCSS con tailwindcss + autoprefixer
-├── css/
-│   ├── input.css                # FUENTE: @tailwind directives + estilos góticos custom
-│   └── style.css                # GENERADO: no editar directamente (npm run build)
-└── js/
-    ├── data.js                  # Const DISCIPLINES_DATA con las 11 disciplinas y ~96 poderes
-    ├── icons.js                 # Const DISCIPLINE_ICONS con SVGs inline por disciplina
-    └── app.js                   # App Vue 3 + Router con clases Tailwind responsive
+V5 Support Tool/
+├── index.html                   # Entrada Vite
+├── vite.config.ts               # base: './', plugin vue
+├── tsconfig.json
+├── package.json                 # Scripts: dev / build / preview
+└── src/
+    ├── main.ts                  # Importa Bootstrap CSS+JS, main.css, monta app
+    ├── App.vue                  # Navbar Bootstrap plegable + <router-view> con transición
+    ├── router.ts                # Rutas hash: /, /disciplina/:id, /poder/:id, /mis-poderes
+    ├── types.ts                 # Interfaces: Discipline, Power, DisciplinesData
+    ├── data.ts                  # DISCIPLINES_DATA: 11 disciplinas y ~96 poderes
+    ├── icons.ts                 # DISCIPLINE_ICONS: SVGs inline por disciplina
+    ├── helpers.ts               # levelDots, disciplineById, powerById, shortCost, shortDuration, artGradient
+    ├── composables/
+    │   └── useFavorites.ts      # Estado singleton de Mis Poderes — persiste en localStorage
+    ├── css/
+    │   └── main.css             # Estilos góticos custom + overrides Bootstrap
+    └── views/
+        ├── HomeView.vue         # Grid de disciplinas con buscador
+        ├── DisciplineView.vue   # Baraja de poderes + estrella para guardar en Mis Poderes
+        ├── PowerView.vue        # Carta detalle de un poder
+        └── MisPoderesView.vue   # Poderes guardados, agrupados por disciplina y ordenados por nivel
 ```
 
 ## Rutas
@@ -35,53 +42,67 @@ V5 Discipline Finder/
 | Hash | Vista | Descripción |
 |------|-------|-------------|
 | `#/` | `HomeView` | Grid de las 11 disciplinas con buscador |
-| `#/disciplina/:id` | `DisciplineView` | Baraja de cartas con los poderes de la disciplina |
+| `#/disciplina/:id` | `DisciplineView` | Baraja de poderes de la disciplina |
 | `#/disciplina/:id/poder/:powerId` | `PowerView` | Carta detalle de un poder concreto |
+| `#/mis-poderes` | `MisPoderesView` | Poderes guardados por el usuario |
 
-## Datos (`js/data.js`)
+## Navegación (`App.vue`)
+
+Navbar Bootstrap sticky arriba con `navbar-expand-md`:
+- En móvil se pliega con hamburguesa
+- Se cierra automáticamente al navegar (watch sobre `route.path`)
+- Badge rojo en "Mis Poderes" con el número de poderes guardados
+- Brand: "V5 Support Tool"
+
+## Mis Poderes (`composables/useFavorites.ts`)
+
+Singleton reactivo con `ref<string[]>`. Cada favorito se almacena como `"disciplineId:powerId"` en `localStorage` bajo la clave `v5-mis-poderes`. Expone `toggle`, `isFavorite` y la ref `favorites`.
+
+En `DisciplineView.vue` cada power card tiene una estrella (`.star-btn`) en la esquina superior derecha que llama a `toggle`. En `MisPoderesView.vue` los poderes se agrupan por disciplina (en el orden de `data.ts`) y se ordenan por nivel dentro de cada grupo.
+
+## Datos (`src/data.ts`)
 
 Fuente: PDF oficial español *Vampiro La Mascarada 5 edición - Disciplinas.pdf*.
 
 `DISCIPLINES_DATA.disciplines` es un array donde cada disciplina tiene:
 
-```js
+```ts
 {
   id: "animalismo",           // slug usado en las rutas
   name: "Animalismo",
-  description: "...",         // resumen breve
+  description: "...",
   tipo: "Mental",             // Mental | Físico | Social
-  amenaza: "...",             // amenaza para la Mascarada
-  resonancia: "...",          // resonancia de sangre recomendada
-  color: "#4a7c3f",           // color temático (usado en gradientes y bordes)
+  amenaza: "...",
+  resonancia: "...",
+  color: "#4a7c3f",           // color temático (gradientes y bordes)
   colorDark: "#2d4a25",       // variante oscura para gradientes
   colorGlow: "rgba(...)",     // color para box-shadow glow
-  clanes: ["Gangrel", ...],   // clanes con afinidad
+  clanes: ["Gangrel", ...],
   iconType: "wolf",           // clave en DISCIPLINE_ICONS
-  powers: [ ... ]             // array de poderes (ver abajo)
+  powers: [ ... ]
 }
 ```
 
 Cada poder:
 
-```js
+```ts
 {
-  id: "sentir-a-la-bestia",   // slug usado en las rutas
+  id: "sentir-a-la-bestia",
   name: "Sentir a la Bestia",
   level: 1,                   // 1–5
-  cost: "Ninguno",            // coste en Ansia / Enardecimiento
+  cost: "Ninguno",
   dicePool: "Resolución + Animalismo contra ...",
   duration: "Pasiva",
-  description: "..."          // resumen conciso, máx ~250 chars
+  description: "...",
+  amalgama?: "..."            // opcional
 }
 ```
 
-### Añadir o editar un poder
+Para añadir o editar un poder, editar directamente `src/data.ts` respetando los tipos de `src/types.ts`.
 
-Editar directamente `js/data.js`. No hay validación de esquema; basta con respetar la estructura de objetos y que el `id` sea único dentro de la disciplina.
+## Iconos (`src/icons.ts`)
 
-## Iconos (`js/icons.js`)
-
-`DISCIPLINE_ICONS` es un objeto `{ [iconType]: svgString }`. Cada SVG usa `currentColor` para heredar el color de la disciplina desde CSS/Vue. ViewBox `0 0 100 100`.
+`DISCIPLINE_ICONS` es un objeto `{ [iconType]: svgString }`. Cada SVG usa `currentColor`. ViewBox `0 0 100 100`.
 
 | iconType | Disciplina |
 |----------|-----------|
@@ -97,44 +118,17 @@ Editar directamente `js/data.js`. No hay validación de esquema; basta con respe
 | `blood`  | Hechicería de Sangre |
 | `flask`  | Alquimia de Sangre Débil |
 
-Para añadir un icono: agregar una entrada en `DISCIPLINE_ICONS` y referenciarla con `iconType` en la disciplina correspondiente en `data.js`.
+## CSS (`src/css/main.css`)
 
-## App (`js/app.js`)
+Estilos góticos custom sobre Bootstrap. Clases relevantes:
 
-Todo el código Vue está en un único fichero. Sin SFCs (no hay build). Estructura:
+- `.app-navbar` / `.app-nav-link` / `.app-nav-badge` — navbar custom
+- `.discipline-card` / `.power-card` — tarjetas con CSS vars `--card-color` y `--card-glow`
+- `.star-btn` / `.star-btn--filled` — botón estrella de favoritos
+- `.disc-group-icon` — icono de disciplina en MisPoderesView
+- `.power-detail-card` / `.pst` — vista detalle de poder
 
-- **Helpers** (`levelDots`, `disciplineById`, `powerById`, `shortCost`, `artGradient`) — funciones puras usadas por las vistas.
-- **HomeView** — lista de disciplinas con filtro reactivo por nombre/clan/tipo.
-- **DisciplineView** — cabecera de disciplina + grid de power cards.
-- **PowerView** — carta detalle con stats y descripción completa.
-- **Router** — `createWebHashHistory`, scroll to top en cada navegación.
-- **App** — componente raíz con `<transition name="page">` para animaciones entre vistas.
-
-Las vistas no usan `<script setup>` ni SFCs; usan `defineComponent` con `template` como string literal y `setup()` / `computed`.
-
-## CSS
-
-**No editar `css/style.css`** — es un archivo generado. Editar siempre `css/input.css`.
-
-`css/input.css` contiene:
-- `@tailwind base/components/utilities` — las directivas de Tailwind
-- Estilos góticos custom que Tailwind no puede generar: animaciones (blood drip), card styles con CSS vars (`--card-color`, `--card-glow`), level dots, page transitions, scrollbar
-
-Las variables `--card-color` y `--card-glow` se inyectan inline desde Vue para dar el color temático de cada disciplina.
-
-## Responsive (Tailwind)
-
-Breakpoints configurados en `tailwind.config.js`:
-
-| Prefijo | Mínimo | Uso |
-|---------|--------|-----|
-| `xs:`   | 400px  | Móvil grande / iPhone Plus |
-| `sm:`   | 640px  | Tablet pequeña |
-| `md:`   | 768px  | Tablet |
-| `lg:`   | 1024px | Desktop |
-| `2xl:`  | 1400px | Desktop grande |
-
-Los grids usan `grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5` etc., directamente en los templates de `app.js`.
+Las variables `--card-color` y `--card-glow` se inyectan inline desde Vue.
 
 ## Ejecutar en local
 
@@ -142,12 +136,14 @@ Los grids usan `grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid
 # Instalar dependencias (primera vez)
 npm install --no-bin-links --ignore-scripts
 
-# Modo desarrollo: regenera CSS al guardar
+# Modo desarrollo
 npm run dev
+# → http://localhost:5173
 
-# Build de producción (CSS minificado)
+# Build de producción
 npm run build
+# → dist/
 
-# Servidor estático en paralelo
-npx serve .
+# Previsualizar build
+npm run preview
 ```

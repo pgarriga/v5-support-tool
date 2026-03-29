@@ -1,6 +1,6 @@
-# 🩸 Disciplinas · Vampiro: La Mascarada V5
+# V5 Support Tool · Vampiro: La Mascarada
 
-Herramienta de consulta rápida para partidas de rol de **Vampiro: La Mascarada 5ª Edición**. Permite consultar las 11 disciplinas y sus ~96 poderes de forma rápida durante las sesiones de juego.
+Herramienta de soporte para partidas de rol de **Vampiro: La Mascarada 5ª Edición**. Consulta rápida de disciplinas y poderes, con posibilidad de guardar los poderes de tu personaje.
 
 ---
 
@@ -9,7 +9,6 @@ Herramienta de consulta rápida para partidas de rol de **Vampiro: La Mascarada 
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-6.3.1-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Vue Router](https://img.shields.io/badge/Vue_Router-4.5.0-4FC08D?style=flat-square)
 
 ---
 
@@ -18,10 +17,10 @@ Herramienta de consulta rápida para partidas de rol de **Vampiro: La Mascarada 
 - **11 disciplinas** con iconografía gótica SVG
 - **~96 poderes** con reserva de dados, coste, duración y descripción
 - **Búsqueda** por nombre de disciplina, clan o tipo
-- **3 vistas**: listado → disciplina → detalle de poder
-- **Totalmente responsive** con Bootstrap 5 (2 → 5 columnas según pantalla)
-- **Sin backend** — web estática pura, funciona offline
-- Accesible: navegación por teclado, ARIA labels, contraste WCAG AA
+- **Mis Poderes** — guarda los poderes de tu personaje con una estrella; persisten en `localStorage`
+- **Sin backend** — web estática pura, sin servidor, funciona offline
+- Responsive con Bootstrap 5 (2 → 5 columnas según pantalla)
+- Accesible: navegación por teclado, ARIA labels
 
 ## Stack técnico
 
@@ -29,33 +28,35 @@ Herramienta de consulta rápida para partidas de rol de **Vampiro: La Mascarada 
 |------------|---------|-----|
 | Vue 3 | 3.5.13 | Framework reactivo (SFCs + Composition API + TypeScript) |
 | Vue Router | 4.5.0 | Navegación hash (`#/ruta`) |
-| Bootstrap | 5.3.3 | Grid responsive y utilidades CSS |
+| Bootstrap | 5.3.3 | Navbar, grid responsive y utilidades CSS |
 | Vite | 6.3.1 | Bundler y servidor de desarrollo |
 | TypeScript | 5.7.3 | Tipado estático |
 
 ## Estructura del proyecto
 
 ```
-V5 Discipline Finder/
+V5 Support Tool/
 ├── index.html                 # Entrada Vite
-├── vite.config.ts             # Configuración Vite
-├── tsconfig.json              # Configuración TypeScript
+├── vite.config.ts
+├── tsconfig.json
 ├── package.json
-├── src/
-│   ├── main.ts                # Bootstrap CSS + Vue app
-│   ├── App.vue                # Componente raíz (transiciones de página)
-│   ├── router.ts              # Rutas hash
-│   ├── types.ts               # Interfaces TypeScript (Discipline, Power)
-│   ├── data.ts                # Las 11 disciplinas y ~96 poderes
-│   ├── icons.ts               # SVGs góticos por disciplina
-│   ├── helpers.ts             # Funciones puras (shortCost, artGradient…)
-│   ├── css/
-│   │   └── main.css           # Estilos góticos custom + overrides Bootstrap
-│   └── views/
-│       ├── HomeView.vue       # Grid de disciplinas con buscador
-│       ├── DisciplineView.vue # Baraja de poderes de una disciplina
-│       └── PowerView.vue      # Carta detalle de un poder
-└── dist/                      # Build de producción (generado)
+└── src/
+    ├── main.ts                # Bootstrap CSS/JS + Vue app
+    ├── App.vue                # Navbar Bootstrap + transiciones de página
+    ├── router.ts              # Rutas hash
+    ├── types.ts               # Interfaces TypeScript (Discipline, Power)
+    ├── data.ts                # Las 11 disciplinas y ~96 poderes
+    ├── icons.ts               # SVGs góticos por disciplina
+    ├── helpers.ts             # Funciones puras (shortCost, artGradient…)
+    ├── composables/
+    │   └── useFavorites.ts    # Estado de Mis Poderes (localStorage)
+    ├── css/
+    │   └── main.css           # Estilos góticos custom + overrides Bootstrap
+    └── views/
+        ├── HomeView.vue       # Grid de disciplinas con buscador
+        ├── DisciplineView.vue # Baraja de poderes de una disciplina
+        ├── PowerView.vue      # Carta detalle de un poder
+        └── MisPoderesView.vue # Poderes guardados, agrupados por disciplina y nivel
 ```
 
 ## Rutas
@@ -63,8 +64,9 @@ V5 Discipline Finder/
 | Hash | Vista | Descripción |
 |------|-------|-------------|
 | `#/` | HomeView | Grid de las 11 disciplinas con buscador |
-| `#/disciplina/:id` | DisciplineView | Baraja de poderes |
+| `#/disciplina/:id` | DisciplineView | Baraja de poderes con estrella para guardar |
 | `#/disciplina/:id/poder/:powerId` | PowerView | Carta detalle de un poder |
+| `#/mis-poderes` | MisPoderesView | Poderes guardados, por disciplina y nivel |
 
 ## Instalación y uso
 

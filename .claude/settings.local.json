@@ -10,7 +10,9 @@
       "Bash(npm --version)",
       "Bash(cd:*)",
       "Bash(npm run:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(gh auth:*)",
+      "Bash(npm version:*)"
     ]
   }
 }

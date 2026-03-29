@@ -3,11 +3,13 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { DISCIPLINE_ICONS } from '../icons'
 import { disciplineById, levelDots, shortCost, shortDuration, artGradient } from '../helpers'
+import { useFavorites } from '../composables/useFavorites'
 
 const route  = useRoute()
 const router = useRouter()
 
 const discipline = computed(() => disciplineById(route.params['id'] as string))
+const { isFavorite, toggle } = useFavorites()
 
 function goBack():            void { router.push('/') }
 function goPower(pid: string): void { router.push(`/disciplina/${route.params['id']}/poder/${pid}`) }
@@ -109,6 +111,11 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
               </div>
 
               <div class="art-overlay" style="background: linear-gradient(180deg, transparent 30%, #13101e 100%);"></div>
+              <button class="star-btn"
+                      :class="{ 'star-btn--filled': isFavorite(discipline!.id, power.id) }"
+                      @click.stop="toggle(discipline!.id, power.id)"
+                      :title="isFavorite(discipline!.id, power.id) ? 'Quitar de Mis Poderes' : 'Añadir a Mis Poderes'"
+                      :aria-label="isFavorite(discipline!.id, power.id) ? 'Quitar de Mis Poderes' : 'Añadir a Mis Poderes'">★</button>
             </div>
 
             <!-- Card body -->
