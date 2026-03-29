@@ -3,6 +3,7 @@ import HomeView        from './views/HomeView.vue'
 import DisciplineView  from './views/DisciplineView.vue'
 import PowerView       from './views/PowerView.vue'
 import MisPoderesView  from './views/MisPoderesView.vue'
+import SettingsView    from './views/SettingsView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -11,6 +12,7 @@ const router = createRouter({
     { path: '/disciplina/:id',                    component: DisciplineView  },
     { path: '/disciplina/:id/poder/:powerId',     component: PowerView       },
     { path: '/mis-poderes',                       component: MisPoderesView  },
+    { path: '/ajustes',                           component: SettingsView    },
     { path: '/:pathMatch(.*)*',                   redirect: '/'              },
   ],
   scrollBehavior() {

@@ -1,0 +1,138 @@
+import { computed } from 'vue'
+import { useSettings } from './useSettings'
+
+const es = {
+  nav: {
+    disciplines: 'Disciplinas',
+    myPowers:    'Mis Poderes',
+    settings:    'Ajustes',
+  },
+  home: {
+    title:            'Disciplinas',
+    searchPlaceholder: 'Buscar disciplina o clan…',
+    searchAriaLabel:  'Buscar disciplina o clan',
+    resonance:        'Resonancia',
+    powers:           'poderes',
+    noResults:        'No se encontraron disciplinas para',
+  },
+  discipline: {
+    back:           'Disciplinas',
+    type:           'Tipo',
+    threat:         'Amenaza',
+    resonance:      'Resonancia',
+    clans:          'Clanes',
+    powers:         'Poderes',
+    available:      'disponibles',
+    level:          'Nivel',
+    cost:           'Coste',
+    duration:       'Duración',
+    addToFav:       'Añadir a Mis Poderes',
+    removeFromFav:  'Quitar de Mis Poderes',
+    notFound:       'Disciplina no encontrada.',
+    backHome:       'Volver al inicio',
+  },
+  power: {
+    cost:      'Coste',
+    dicePool:  'Reserva de dados',
+    duration:  'Duración',
+    type:      'Tipo',
+    level:     'Nivel',
+    amalgam:   'Poder Amalgama',
+    notFound:  'Poder no encontrado.',
+    backHome:  'Volver al inicio',
+  },
+  myPowers: {
+    title:         'Mis Poderes',
+    empty:         'No tienes poderes guardados aún.',
+    emptyHint:     'Usa la estrella en las cartas de poder para añadirlos aquí.',
+    power:         'poder',
+    powers:        'poderes',
+    removeFromFav: 'Quitar de Mis Poderes',
+    cost:          'Coste',
+  },
+  settings: {
+    title:       'Ajustes',
+    theme:       'Tema',
+    themeDesc:   'Controla el aspecto visual de la aplicación.',
+    themeAuto:   'Automático',
+    themeDark:   'Oscuro',
+    themeLight:  'Claro',
+    language:    'Idioma',
+    langDesc:    'Auto detecta el idioma del sistema operativo.',
+    langAuto:    'Automático',
+    langEs:      'Español',
+    langEn:      'English',
+  },
+}
+
+const en: typeof es = {
+  nav: {
+    disciplines: 'Disciplines',
+    myPowers:    'My Powers',
+    settings:    'Settings',
+  },
+  home: {
+    title:             'Disciplines',
+    searchPlaceholder: 'Search discipline or clan…',
+    searchAriaLabel:   'Search discipline or clan',
+    resonance:         'Resonance',
+    powers:            'powers',
+    noResults:         'No disciplines found for',
+  },
+  discipline: {
+    back:          'Disciplines',
+    type:          'Type',
+    threat:        'Threat',
+    resonance:     'Resonance',
+    clans:         'Clans',
+    powers:        'Powers',
+    available:     'available',
+    level:         'Level',
+    cost:          'Cost',
+    duration:      'Duration',
+    addToFav:      'Add to My Powers',
+    removeFromFav: 'Remove from My Powers',
+    notFound:      'Discipline not found.',
+    backHome:      'Back to home',
+  },
+  power: {
+    cost:     'Cost',
+    dicePool: 'Dice Pool',
+    duration: 'Duration',
+    type:     'Type',
+    level:    'Level',
+    amalgam:  'Amalgam Power',
+    notFound: 'Power not found.',
+    backHome: 'Back to home',
+  },
+  myPowers: {
+    title:         'My Powers',
+    empty:         'You have no saved powers yet.',
+    emptyHint:     'Use the star on power cards to add them here.',
+    power:         'power',
+    powers:        'powers',
+    removeFromFav: 'Remove from My Powers',
+    cost:          'Cost',
+  },
+  settings: {
+    title:      'Settings',
+    theme:      'Theme',
+    themeDesc:  'Controls the visual appearance of the app.',
+    themeAuto:  'Auto',
+    themeDark:  'Dark',
+    themeLight: 'Light',
+    language:   'Language',
+    langDesc:   'Auto detects the operating system language.',
+    langAuto:   'Auto',
+    langEs:     'Español',
+    langEn:     'English',
+  },
+}
+
+const dict = { es, en }
+
+export function useI18n() {
+  const { resolvedLang } = useSettings()
+  const t = computed(() => dict[resolvedLang.value])
+  return { t }
+}

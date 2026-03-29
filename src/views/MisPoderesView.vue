@@ -4,10 +4,12 @@ import { useRouter } from 'vue-router'
 import { DISCIPLINES_DATA } from '../data'
 import { DISCIPLINE_ICONS } from '../icons'
 import { useFavorites } from '../composables/useFavorites'
+import { useI18n } from '../composables/useI18n'
 import { artGradient, levelDots, shortCost } from '../helpers'
 
 const router = useRouter()
 const { isFavorite, toggle } = useFavorites()
+const { t } = useI18n()
 
 const groupedPowers = computed(() => {
   return DISCIPLINES_DATA.disciplines
@@ -27,19 +29,22 @@ const totalCount = computed(() =>
 function goPower(discId: string, powerId: string) {
   router.push(`/disciplina/${discId}/poder/${powerId}`)
 }
+
+function powerCountLabel(n: number): string {
+  return `${n} ${n !== 1 ? t.value.myPowers.powers : t.value.myPowers.power}`
+}
 </script>
 
 <template>
   <div class="min-vh-100 bg-void font-body text-parchment">
 
     <!-- ── Header ── -->
-    <header class="text-center px-4 pt-5 pb-4 position-relative overflow-hidden"
-            style="background: linear-gradient(180deg,#1a0808 0%,#0d0b14 100%); border-bottom: 1px solid #3a1010;">
+    <header class="page-header text-center px-4 pt-5 pb-4 position-relative overflow-hidden">
       <div class="position-absolute top-0 start-0 w-100 h-100 pe-none"
            style="background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(139,0,0,0.15) 0%, transparent 70%);"></div>
-      <h1 class="font-title fw-black tracking-widest text-uppercase lh-sm position-relative"
-          style="font-size: clamp(1.4rem,4vw,2.4rem); color:#fff; text-shadow: 0 0 30px rgba(139,0,0,0.8), 0 2px 4px rgba(0,0,0,0.8);">
-        Mis Poderes
+      <h1 class="font-title fw-black tracking-widest text-uppercase lh-sm position-relative page-title-main"
+          style="font-size: clamp(1.4rem,4vw,2.4rem);">
+        {{ t.myPowers.title }}
       </h1>
     </header>
 
@@ -48,8 +53,8 @@ function goPower(discId: string, powerId: string) {
          class="d-flex flex-column align-items-center justify-content-center gap-3 p-5 text-center"
          style="min-height: 50vh;">
       <div class="star-empty-icon">★</div>
-      <p class="text-parchment-dim mb-1">No tienes poderes guardados aún.</p>
-      <p class="text-parchment-faint small mb-0">Usa la estrella en las cartas de poder para añadirlos aquí.</p>
+      <p class="text-parchment-dim mb-1">{{ t.myPowers.empty }}</p>
+      <p class="text-parchment-faint small mb-0">{{ t.myPowers.emptyHint }}</p>
     </div>
 
     <!-- ── Poderes agrupados por disciplina ── -->
@@ -71,7 +76,7 @@ function goPower(discId: string, powerId: string) {
             {{ group.discipline.name }}
           </h2>
           <span class="text-parchment-faint small ms-auto">
-            {{ group.powers.length }} poder{{ group.powers.length !== 1 ? 'es' : '' }}
+            {{ powerCountLabel(group.powers.length) }}
           </span>
         </div>
 
@@ -93,16 +98,16 @@ function goPower(discId: string, powerId: string) {
                 <div v-html="DISCIPLINE_ICONS[group.discipline.iconType]"
                      :style="{ color: group.discipline.color }"
                      class="power-art-icon"></div>
-                <div class="power-level-badge">Nivel {{ power.level }}</div>
+                <div class="power-level-badge">{{ t.discipline.level }} {{ power.level }}</div>
                 <div class="power-level-dots-card">
                   <span v-for="(filled, i) in levelDots(power.level)" :key="i"
                         class="power-dot" :class="{ filled }"></span>
                 </div>
-                <div class="art-overlay" style="background: linear-gradient(180deg, transparent 30%, #13101e 100%);"></div>
+                <div class="art-overlay" :style="{ background: 'linear-gradient(180deg, transparent 30%, var(--void-card) 100%)' }"></div>
                 <button class="star-btn star-btn--filled"
                         @click.stop="toggle(group.discipline.id, power.id)"
-                        title="Quitar de Mis Poderes"
-                        aria-label="Quitar de Mis Poderes">★</button>
+                        :title="t.myPowers.removeFromFav"
+                        :aria-label="t.myPowers.removeFromFav">★</button>
               </div>
               <!-- Body -->
               <div class="d-flex flex-column gap-1 p-2 p-sm-3 flex-fill">
@@ -110,7 +115,7 @@ function goPower(discId: string, powerId: string) {
                   {{ power.name }}
                 </h3>
                 <p class="small text-parchment-dim mb-0">
-                  <strong class="text-gold">Coste:</strong> {{ shortCost(power.cost) }}
+                  <strong class="text-gold">{{ t.myPowers.cost }}:</strong> {{ shortCost(power.cost) }}
                 </p>
                 <p class="small text-parchment-dim fst-italic leading-snug mt-auto mb-0 d-none d-sm-block line-clamp-3">
                   {{ power.description }}

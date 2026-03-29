@@ -3,9 +3,11 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { DISCIPLINE_ICONS } from '../icons'
 import { disciplineById, powerById, levelDots, artGradient } from '../helpers'
+import { useI18n } from '../composables/useI18n'
 
 const route  = useRoute()
 const router = useRouter()
+const { t } = useI18n()
 
 const discipline = computed(() => disciplineById(route.params['id'] as string))
 const power      = computed(() => powerById(discipline.value, route.params['powerId'] as string))
@@ -51,7 +53,7 @@ function goBack(): void { router.push(`/disciplina/${route.params['id']}`) }
           <div class="power-detail-discipline-tag">
             <span>{{ discipline.name }}</span>
             <span style="opacity:.4;">·</span>
-            <span>Nivel {{ power.level }}</span>
+            <span>{{ t.power.level }} {{ power.level }}</span>
           </div>
 
           <div class="power-detail-art-overlay"></div>
@@ -69,19 +71,19 @@ function goBack(): void { router.push(`/disciplina/${route.params['id']}`) }
           <!-- Stats table -->
           <div class="pst">
             <div v-if="power.cost" class="pst-row">
-              <div class="pst-key">Coste</div>
+              <div class="pst-key">{{ t.power.cost }}</div>
               <div class="pst-val">{{ power.cost }}</div>
             </div>
             <div v-if="power.dicePool && power.dicePool !== 'N/A'" class="pst-row">
-              <div class="pst-key">Reserva de dados</div>
+              <div class="pst-key">{{ t.power.dicePool }}</div>
               <div class="pst-val">{{ power.dicePool }}</div>
             </div>
             <div v-if="power.duration && power.duration !== 'N/A' && power.duration !== 'Pasiva'" class="pst-row">
-              <div class="pst-key">Duración</div>
+              <div class="pst-key">{{ t.power.duration }}</div>
               <div class="pst-val">{{ power.duration }}</div>
             </div>
             <div v-if="discipline.tipo" class="pst-row">
-              <div class="pst-key">Tipo</div>
+              <div class="pst-key">{{ t.power.type }}</div>
               <div class="pst-val">{{ discipline.tipo }}</div>
             </div>
           </div>
@@ -97,7 +99,7 @@ function goBack(): void { router.push(`/disciplina/${route.params['id']}`) }
 
           <!-- Amalgama note -->
           <div class="amalgama-note mt-4" v-if="power.amalgama">
-            <strong>Poder Amalgama:</strong> {{ power.amalgama }}
+            <strong>{{ t.power.amalgam }}:</strong> {{ power.amalgama }}
           </div>
         </div>
       </div>
@@ -107,7 +109,7 @@ function goBack(): void { router.push(`/disciplina/${route.params['id']}`) }
   <!-- Not found -->
   <div v-else class="min-vh-100 bg-void text-parchment-dim d-flex flex-column align-items-center justify-content-center gap-3 p-5">
     <div class="fs-1" style="opacity:.4;">⚰️</div>
-    <p>Poder no encontrado.</p>
-    <button class="back-btn" @click="$router.push('/')">Volver al inicio</button>
+    <p>{{ t.power.notFound }}</p>
+    <button class="back-btn" @click="$router.push('/')">{{ t.power.backHome }}</button>
   </div>
 </template>

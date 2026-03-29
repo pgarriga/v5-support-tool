@@ -4,9 +4,11 @@ import { useRoute, useRouter } from 'vue-router'
 import { DISCIPLINE_ICONS } from '../icons'
 import { disciplineById, levelDots, shortCost, shortDuration, artGradient } from '../helpers'
 import { useFavorites } from '../composables/useFavorites'
+import { useI18n } from '../composables/useI18n'
 
 const route  = useRoute()
 const router = useRouter()
+const { t } = useI18n()
 
 const discipline = computed(() => disciplineById(route.params['id'] as string))
 const { isFavorite, toggle } = useFavorites()
@@ -25,7 +27,7 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="m15 18-6-6 6-6"/>
         </svg>
-        Disciplinas
+        {{ t.discipline.back }}
       </button>
       <span class="text-parchment-faint">›</span>
       <span class="text-parchment">{{ discipline.name }}</span>
@@ -58,19 +60,19 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
         <!-- Stats row -->
         <div class="d-flex flex-wrap justify-content-center justify-content-sm-start gap-4">
           <div v-if="discipline.tipo" class="d-flex flex-column gap-1">
-            <span class="text-gold text-uppercase tracking-widest small fw-semibold">Tipo</span>
+            <span class="text-gold text-uppercase tracking-widest small fw-semibold">{{ t.discipline.type }}</span>
             <span class="text-parchment">{{ discipline.tipo }}</span>
           </div>
           <div v-if="discipline.amenaza" class="d-flex flex-column gap-1">
-            <span class="text-gold text-uppercase tracking-widest small fw-semibold">Amenaza</span>
+            <span class="text-gold text-uppercase tracking-widest small fw-semibold">{{ t.discipline.threat }}</span>
             <span class="text-parchment">{{ discipline.amenaza }}</span>
           </div>
           <div v-if="discipline.resonancia" class="d-flex flex-column gap-1">
-            <span class="text-gold text-uppercase tracking-widest small fw-semibold">Resonancia</span>
+            <span class="text-gold text-uppercase tracking-widest small fw-semibold">{{ t.discipline.resonance }}</span>
             <span class="text-parchment">{{ discipline.resonancia }}</span>
           </div>
           <div v-if="discipline.clanes.length" class="d-flex flex-column gap-1">
-            <span class="text-gold text-uppercase tracking-widest small fw-semibold">Clanes</span>
+            <span class="text-gold text-uppercase tracking-widest small fw-semibold">{{ t.discipline.clans }}</span>
             <span class="text-parchment">{{ discipline.clanes.join(', ') }}</span>
           </div>
         </div>
@@ -80,7 +82,7 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
     <!-- ── Powers grid ── -->
     <section class="px-3 px-sm-4 py-4 pb-5 max-content mx-auto">
       <p class="text-parchment-dim text-uppercase tracking-widest small fw-semibold mb-3">
-        Poderes · {{ discipline.powers.length }} disponibles
+        {{ t.discipline.powers }} · {{ discipline.powers.length }} {{ t.discipline.available }}
       </p>
 
       <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-2 g-sm-3">
@@ -94,7 +96,7 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
             @keydown.space.prevent="goPower(power.id)"
             tabindex="0"
             role="button"
-            :aria-label="`${power.name}, Nivel ${power.level}${power.cost && power.cost !== 'Ninguno' ? ', Coste: ' + power.cost : ''}`"
+            :aria-label="`${power.name}, ${t.discipline.level} ${power.level}${power.cost && power.cost !== 'Ninguno' ? ', ' + t.discipline.cost + ': ' + power.cost : ''}`"
           >
             <!-- Card art -->
             <div class="power-card-art"
@@ -103,19 +105,19 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
                    :style="{ color: discipline.color }"
                    class="power-art-icon"></div>
 
-              <div class="power-level-badge">Nivel {{ power.level }}</div>
+              <div class="power-level-badge">{{ t.discipline.level }} {{ power.level }}</div>
 
               <div class="power-level-dots-card">
                 <span v-for="(filled, i) in levelDots(power.level)" :key="i"
                       class="power-dot" :class="{ filled }"></span>
               </div>
 
-              <div class="art-overlay" style="background: linear-gradient(180deg, transparent 30%, #13101e 100%);"></div>
+              <div class="art-overlay" :style="{ background: 'linear-gradient(180deg, transparent 30%, var(--void-card) 100%)' }"></div>
               <button class="star-btn"
                       :class="{ 'star-btn--filled': isFavorite(discipline!.id, power.id) }"
                       @click.stop="toggle(discipline!.id, power.id)"
-                      :title="isFavorite(discipline!.id, power.id) ? 'Quitar de Mis Poderes' : 'Añadir a Mis Poderes'"
-                      :aria-label="isFavorite(discipline!.id, power.id) ? 'Quitar de Mis Poderes' : 'Añadir a Mis Poderes'">★</button>
+                      :title="isFavorite(discipline!.id, power.id) ? t.discipline.removeFromFav : t.discipline.addToFav"
+                      :aria-label="isFavorite(discipline!.id, power.id) ? t.discipline.removeFromFav : t.discipline.addToFav">★</button>
             </div>
 
             <!-- Card body -->
@@ -125,10 +127,10 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
                 {{ power.name }}
               </h3>
               <p class="small text-parchment-dim mb-0">
-                <strong class="text-gold">Coste:</strong> {{ shortCost(power.cost) }}
+                <strong class="text-gold">{{ t.discipline.cost }}:</strong> {{ shortCost(power.cost) }}
               </p>
               <p class="small text-parchment-dim mb-0" v-if="shortDuration(power.duration)">
-                <strong class="text-gold">Duración:</strong> {{ shortDuration(power.duration) }}
+                <strong class="text-gold">{{ t.discipline.duration }}:</strong> {{ shortDuration(power.duration) }}
               </p>
               <p class="small text-parchment-dim fst-italic leading-snug mt-auto mb-0 d-none d-sm-block line-clamp-3">
                 {{ power.description }}
@@ -144,7 +146,7 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
   <!-- Not found -->
   <div v-else class="min-vh-100 bg-void text-parchment-dim d-flex flex-column align-items-center justify-content-center gap-3 p-5">
     <div class="fs-1" style="opacity:.4;">⚰️</div>
-    <p>Disciplina no encontrada.</p>
-    <button class="back-btn" @click="$router.push('/')">Volver al inicio</button>
+    <p>{{ t.discipline.notFound }}</p>
+    <button class="back-btn" @click="$router.push('/')">{{ t.discipline.backHome }}</button>
   </div>
 </template>

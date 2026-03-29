@@ -4,10 +4,12 @@ import { useRouter } from 'vue-router'
 import { DISCIPLINES_DATA } from '../data'
 import { DISCIPLINE_ICONS } from '../icons'
 import { artGradient } from '../helpers'
+import { useI18n } from '../composables/useI18n'
 import type { Discipline } from '../types'
 
 const search = ref('')
 const router  = useRouter()
+const { t } = useI18n()
 
 const disciplines = computed<Discipline[]>(() => {
   const q = search.value.toLowerCase().trim()
@@ -28,17 +30,14 @@ function goTo(id: string) {
   <div class="min-vh-100 bg-void font-body text-parchment">
 
     <!-- ── Header ── -->
-    <header class="text-center px-4 pt-5 pb-4 position-relative overflow-hidden"
-            style="background: linear-gradient(180deg,#1a0808 0%,#0d0b14 100%); border-bottom: 1px solid #3a1010;">
+    <header class="page-header text-center px-4 pt-5 pb-4 position-relative overflow-hidden">
       <div class="position-absolute top-0 start-0 w-100 h-100 pe-none"
            style="background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(139,0,0,0.15) 0%, transparent 70%);"></div>
 
-      <h1 class="font-title fw-black tracking-widest text-uppercase lh-sm position-relative"
-          style="font-size: clamp(1.8rem,5vw,3.2rem); color:#fff; text-shadow: 0 0 30px rgba(139,0,0,0.8), 0 2px 4px rgba(0,0,0,0.8);">
-        Disciplinas
+      <h1 class="font-title fw-black tracking-widest text-uppercase lh-sm position-relative page-title-main"
+          style="font-size: clamp(1.8rem,5vw,3.2rem);">
+        {{ t.home.title }}
       </h1>
-
-
     </header>
 
     <!-- ── Search ── -->
@@ -47,9 +46,9 @@ function goTo(id: string) {
         v-model="search"
         class="search-input"
         type="text"
-        placeholder="Buscar disciplina o clan…"
+        :placeholder="t.home.searchPlaceholder"
         autocomplete="off"
-        aria-label="Buscar disciplina o clan"
+        :aria-label="t.home.searchAriaLabel"
       />
     </div>
 
@@ -67,7 +66,7 @@ function goTo(id: string) {
             @keydown.space.prevent="goTo(d.id)"
             tabindex="0"
             role="button"
-            :aria-label="`${d.name} — ${d.tipo}, ${d.powers.length} poderes`"
+            :aria-label="`${d.name} — ${d.tipo}, ${d.powers.length} ${t.home.powers}`"
           >
             <!-- Art -->
             <div class="discipline-card-art"
@@ -94,12 +93,12 @@ function goTo(id: string) {
 
               <p class="text-parchment-dim fst-italic leading-snug mt-1 mb-0 d-none d-sm-block"
                  style="font-size:0.85rem;">
-                <strong class="text-gold not-italic">Resonancia:</strong>
+                <strong class="text-gold not-italic">{{ t.home.resonance }}:</strong>
                 {{ d.resonancia }}
               </p>
 
               <div class="mt-auto pt-1 small" style="opacity:.8;" :style="{ color: d.color }">
-                {{ d.powers.length }} poderes
+                {{ d.powers.length }} {{ t.home.powers }}
               </div>
             </div>
           </article>
@@ -111,7 +110,7 @@ function goTo(id: string) {
     <!-- Empty state -->
     <div v-else class="text-center py-5 px-4 text-parchment-dim">
       <div class="fs-1 mb-3" style="opacity:.4;">🩸</div>
-      <p>No se encontraron disciplinas para «{{ search }}»</p>
+      <p>{{ t.home.noResults }} «{{ search }}»</p>
     </div>
 
   </div>
