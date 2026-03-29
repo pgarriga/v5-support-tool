@@ -54,6 +54,9 @@ const es = {
     cost:          'Coste',
     copy:          'Copiar lista',
     copied:        '¡Copiado!',
+    clearAll:      'Limpiar todo',
+    confirmClear:  '¿Seguro?',
+    cancel:        'Cancelar',
   },
   settings: {
     title:       'Ajustes',
@@ -123,6 +126,9 @@ const en: typeof es = {
     cost:          'Cost',
     copy:          'Copy list',
     copied:        'Copied!',
+    clearAll:      'Clear all',
+    confirmClear:  'Are you sure?',
+    cancel:        'Cancel',
   },
   settings: {
     title:      'Settings',

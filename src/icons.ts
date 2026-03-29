@@ -4,7 +4,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
 
 {
 
-  // ── ANIMALISMO — Cráneo de bestia / cabeza de lobo gótica ──────────────
+  // ── ANIMALISM — Gothic beast skull / wolf head ──────────────────────────
   wolf: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Orejas puntiagudas tipo murciélago -->
     <polygon points="18,50 8,6 36,38" fill="currentColor"/>
@@ -44,7 +44,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <path d="M38,18 Q50,14 62,18 Q62,24 50,22 Q38,24 38,18 Z" fill="rgba(255,255,255,0.08)"/>
   </svg>`,
 
-  // ── AUSPEX — Ojo todo-vidente oculto bajo arco gótico ────────────────
+  // ── AUSPEX — All-seeing eye beneath a gothic arch ───────────────────────
   eye: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Marco de arco gótico apuntado -->
     <path d="M20,95 L20,45 Q20,8 50,5 Q80,8 80,45 L80,95 Z" fill="currentColor" opacity="0.18"/>
@@ -79,7 +79,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <path d="M30,95 L30,47 Q30,20 50,18 Q70,20 70,47 L70,95" fill="rgba(0,0,0,0.25)"/>
   </svg>`,
 
-  // ── CELERIDAD — Rayo con fantasmas de velocidad ───────────────────────
+  // ── CELERITY — Lightning bolt with speed ghosts ─────────────────────────
   bolt: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Fantasmas de velocidad offset detrás (el más lejano primero) -->
     <polygon points="63,6 43,48 58,48 41,94 76,40 57,40 72,6" fill="currentColor" opacity="0.12" transform="translate(-14,0)"/>
@@ -101,7 +101,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <circle cx="66" cy="10" r="2.5" fill="rgba(255,255,255,0.2)"/>
   </svg>`,
 
-  // ── DOMINACIÓN — Corona de hierro gótica ─────────────────────────────
+  // ── DOMINATE — Gothic iron crown ────────────────────────────────────────
   crown: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Banda base de la corona -->
     <rect x="10" y="62" width="80" height="24" rx="2" fill="currentColor"/>
@@ -138,7 +138,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <path d="M68,22 L56,52 L54,50 L66,24 Z" fill="rgba(255,255,255,0.07)"/>
   </svg>`,
 
-  // ── FORTALEZA — Escudo de guerra gótico con cruz patée ───────────────
+  // ── FORTITUDE — Gothic war shield with patée cross ──────────────────────
   shield: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Forma heater del escudo -->
     <path d="M50,5 L92,20 L92,56 Q92,82 50,97 Q8,82 8,56 L8,20 Z" fill="currentColor"/>
@@ -172,7 +172,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <path d="M50,5 L8,20 L8,38 L12,36 L12,24 L50,10 Z" fill="rgba(255,255,255,0.07)"/>
   </svg>`,
 
-  // ── OFUSCACIÓN — Figura encapuchada espectral ─────────────────────────
+  // ── OBFUSCATION — Spectral hooded figure ────────────────────────────────
   ghost: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Aura exterior difusa -->
     <ellipse cx="50" cy="52" rx="34" ry="42" fill="currentColor" opacity="0.08"/>
@@ -202,7 +202,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <circle cx="50" cy="50" r="3" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
   </svg>`,
 
-  // ── POTENCIA — Puño monstruoso alzado ────────────────────────────────
+  // ── POTENCE — Raised monstrous fist ─────────────────────────────────────
   fist: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Muñeca y antebrazo -->
     <path d="M34,72 L34,92 Q34,96 40,96 L60,96 Q66,96 66,92 L66,72 Z" fill="currentColor"/>
@@ -239,7 +239,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <path d="M24,46 L24,60 L26,60 L26,46 Z" fill="rgba(255,255,255,0.08)"/>
   </svg>`,
 
-  // ── PRESENCIA — Rosa gótica negra con espinas ─────────────────────────
+  // ── PRESENCE — Gothic black rose with thorns ────────────────────────────
   rose: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Tallo curvado con espinas -->
     <path d="M50,70 Q44,82 42,97" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round"/>
@@ -277,7 +277,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <path d="M35,53 Q34,56 34,58 Q35,56 36,54 Z" fill="rgba(255,255,255,0.15)"/>
   </svg>`,
 
-  // ── PROTEAN — Garras de bestia curvas ────────────────────────────────
+  // ── PROTEAN — Curved beast claws ────────────────────────────────────────
   claws: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Círculo de transformación/energía (línea discontinua ocultista) -->
     <circle cx="50" cy="58" r="38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.35"/>
@@ -308,7 +308,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <path d="M36,80 Q42,85 50,84 Q58,85 64,80" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
   </svg>`,
 
-  // ── HECHICERÍA DE SANGRE — Círculo oculto con gota pentagramada ───────
+  // ── BLOOD SORCERY — Occult circle with pentagrammed drop ────────────────
   blood: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Círculo ocultista exterior con marcas cardinales -->
     <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" stroke-dasharray="5,4"/>
@@ -339,7 +339,7 @@ export const DISCIPLINE_ICONS: Record<IconType, string> =
     <circle cx="50" cy="50" r="2.5" fill="rgba(255,255,255,0.3)"/>
   </svg>`,
 
-  // ── ALQUIMIA DE SANGRE DÉBIL — Matraz hermético con símbolos ─────────
+  // ── THIN-BLOOD ALCHEMY — Hermetic flask with symbols ────────────────────
   flask: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Tapón de corcho con cruz hermética -->
     <rect x="36" y="4" width="28" height="10" rx="3" fill="currentColor"/>

@@ -8,7 +8,8 @@ import { useData } from '../composables/useData'
 import { artGradient, levelDots, shortCost } from '../helpers'
 
 const router = useRouter()
-const { isFavorite, toggle } = useFavorites()
+const { favorites, isFavorite, toggle, clearAll } = useFavorites()
+const confirmClear = ref(false)
 const { t } = useI18n()
 const { disciplines } = useData()
 
@@ -30,7 +31,7 @@ const totalCount = computed(() =>
 )
 
 function goPower(discId: string, powerId: string) {
-  router.push(`/disciplina/${discId}/poder/${powerId}`)
+  router.push(`/discipline/${discId}/power/${powerId}`)
 }
 
 function powerCountLabel(n: number): string {
@@ -73,31 +74,63 @@ function copyList() {
       <div class="star-empty-icon">★</div>
       <p class="text-parchment-dim mb-1">{{ t.myPowers.empty }}</p>
       <p class="text-parchment-faint small mb-0">{{ t.myPowers.emptyHint }}</p>
+      <template v-if="favorites.length">
+        <button v-if="!confirmClear" class="copy-btn mt-2" @click="confirmClear = true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+          </svg>
+          {{ t.myPowers.clearAll }}
+        </button>
+        <div v-else class="d-flex gap-2 mt-2">
+          <button class="copy-btn copy-btn--danger" @click="clearAll(); confirmClear = false">{{ t.myPowers.confirmClear }}</button>
+          <button class="copy-btn" @click="confirmClear = false">{{ t.myPowers.cancel }}</button>
+        </div>
+      </template>
     </div>
 
-    <!-- ── Poderes agrupados por disciplina ── -->
+    <!-- ── Powers grouped by discipline ── -->
     <div v-else class="px-3 px-sm-4 py-4 pb-5 max-content mx-auto">
 
       <!-- Toolbar -->
       <div class="d-flex align-items-center justify-content-between mb-4">
         <span class="text-parchment-faint small">{{ totalCount }} {{ totalCount !== 1 ? t.myPowers.powers : t.myPowers.power }}</span>
-        <button
-          class="copy-btn"
-          :class="{ copied }"
-          @click="copyList"
-          :disabled="copied"
-        >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-          </svg>
-          {{ copied ? t.myPowers.copied : t.myPowers.copy }}
-        </button>
+        <div class="d-flex gap-2">
+          <button
+            class="copy-btn"
+            :class="{ copied }"
+            @click="copyList"
+            :disabled="copied"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            {{ copied ? t.myPowers.copied : t.myPowers.copy }}
+          </button>
+          <button
+            v-if="!confirmClear"
+            class="copy-btn"
+            @click="confirmClear = true"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+            </svg>
+            {{ t.myPowers.clearAll }}
+          </button>
+          <template v-else>
+            <button class="copy-btn copy-btn--danger" @click="clearAll(); confirmClear = false">
+              {{ t.myPowers.confirmClear }}
+            </button>
+            <button class="copy-btn" @click="confirmClear = false">
+              {{ t.myPowers.cancel }}
+            </button>
+          </template>
+        </div>
       </div>
 
       <div v-for="group in groupedPowers" :key="group.discipline.id" class="mb-5">
 
-        <!-- Cabecera de disciplina -->
+        <!-- Discipline header -->
         <div class="d-flex align-items-center gap-3 mb-3 pb-2"
              :style="{ borderBottom: '1px solid ' + group.discipline.color + '55' }">
           <div class="disc-group-icon"
@@ -117,7 +150,7 @@ function copyList() {
           </span>
         </div>
 
-        <!-- Grid de cartas -->
+        <!-- Power cards grid -->
         <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-2 g-sm-3">
           <div class="col" v-for="power in group.powers" :key="power.id">
             <article

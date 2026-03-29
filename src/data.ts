@@ -4,7 +4,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
 {
   "disciplines": [
     {
-      "id": "animalismo",
+      "id": "animalism",
       "name": "Animalismo",
       "description": "Disciplina que permite al vampiro conectar con los animales y con la Bestia interior. Los maestros de Animalismo se hacen uno con sus Bestias y pueden controlar animales, suprimir la Bestia de otros vampiros y más.",
       "tipo": "Mental",
@@ -12,7 +12,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Sangre animal, preferentemente salvaje.",
       "powers": [
         {
-          "id": "sentir-a-la-bestia",
+          "id": "sense-the-beast",
           "name": "Sentir a la Bestia",
           "level": 1,
           "cost": "Ninguno",
@@ -21,7 +21,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Detecta la naturaleza depredadora y el nivel de hostilidad de cualquier criatura cercana. Identifica vampiros, hombres lobo y otros sobrenaturales. Con victoria crítica revela tipo exacto y nivel de Ansia."
         },
         {
-          "id": "vinculo-con-famulus",
+          "id": "bond-famulus",
           "name": "Vínculo con Famulus",
           "level": 1,
           "cost": "El animal debe ser alimentado con la Sangre del usuario durante tres noches distintas, cada una de las cuales requiere un control de Enardecimiento por parte del usuario.",
@@ -30,7 +30,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Crea un vínculo mental permanente con un animal, convirtiéndolo en familiar (famulus). Solo puede tenerse uno. El famulus no envejece mientras reciba Sangre y puede usarse sin coste con Susurros Salvajes y Comunión de Espíritus."
         },
         {
-          "id": "susurros-salvajes",
+          "id": "feral-whispers",
           "name": "Susurros Salvajes",
           "level": 2,
           "cost": "Un control de Enardecimiento por tipo de animal elegido para la escena. Sin coste si se usa sobre el famulus.",
@@ -39,7 +39,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Comunicación bidireccional con animales e invocación de los mismos. La dificultad varía según la complejidad de la orden o la escasez del animal invocado."
         },
         {
-          "id": "colmena-no-muerta",
+          "id": "unliving-hive",
           "name": "Colmena No-Muerta",
           "level": 3,
           "cost": "Sin coste adicional",
@@ -48,7 +48,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Amalgama: Ofuscación 2) Extiende todos los poderes de Animalismo a enjambres de insectos. Puede vincularse como famulus y anidar dentro del propio cuerpo del vampiro."
         },
         {
-          "id": "reprimir-a-la-bestia",
+          "id": "quell-the-beast",
           "name": "Reprimir a la Bestia",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -57,7 +57,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Suprime la Bestia interna de otra criatura, deteniéndola en mitad de un Frenesí o calmando su naturaleza salvaje. También puede usarse sobre uno mismo para calmar el Frenesí propio."
         },
         {
-          "id": "suculencia-animal",
+          "id": "animal-succulence",
           "name": "Suculencia Animal",
           "level": 3,
           "cost": "Ninguno",
@@ -66,7 +66,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Permite saciar Ansia alimentándose de animales, algo normalmente ineficaz. La cantidad saciada depende de la Potencia de Sangre; a mayor nivel, más Ansia recuperada por animal."
         },
         {
-          "id": "comunion-de-espiritus",
+          "id": "subsume-the-spirit",
           "name": "Comunión de Espíritus",
           "level": 4,
           "cost": "Un control de Enardecimiento. Ninguno si se usa sobre el famulus.",
@@ -75,7 +75,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Transfiere la conciencia del vampiro al cuerpo de un animal, controlándolo completamente y usando todos sus sentidos. El cuerpo vampírico queda inconsciente durante la posesión."
         },
         {
-          "id": "control-animal",
+          "id": "animal-dominion",
           "name": "Control Animal",
           "level": 5,
           "cost": "Dos controles de Enardecimiento",
@@ -84,7 +84,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Domina manadas o grupos enteros de animales simultáneamente como si fueran una sola entidad. Con victoria crítica el control es absoluto y sin tirada adicional."
         },
         {
-          "id": "expulsar-a-la-bestia",
+          "id": "drawing-out-the-beast",
           "name": "Expulsar a la Bestia",
           "level": 5,
           "cost": "Un control de Enardecimiento",
@@ -112,7 +112,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Flemática. Artistas (especialmente fotógrafos) y visionarios, ciertos esquizofrénicos, usuarios de sustancias psicoactivas, detectives.",
       "powers": [
         {
-          "id": "sentidos-agudizados",
+          "id": "heightened-senses",
           "name": "Sentidos Agudizados",
           "level": 1,
           "cost": "Ninguno",
@@ -121,7 +121,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Visión en oscuridad total, oído y olfato sobrehumanos. Añade puntos de Auspex como dados extra a todas las pruebas de Percepción."
         },
         {
-          "id": "sentir-lo-invisible",
+          "id": "sense-the-unseen",
           "name": "Sentir lo Invisible",
           "level": 1,
           "cost": "Ninguno",
@@ -130,7 +130,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Detecta presencias ocultas por Ofuscación, espíritus y el mundo espiritual. Contramedida directa contra todos los niveles de Ofuscación."
         },
         {
-          "id": "premonicion",
+          "id": "premonition",
           "name": "Premonición",
           "level": 2,
           "cost": "Ninguno o un control de Enardecimiento",
@@ -139,7 +139,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Recibe destellos de intuición, presentimientos o visiones sobre peligros inmediatos. El Narrador puede otorgar pistas pasivas sin que el jugador las solicite."
         },
         {
-          "id": "compartir-los-sentidos",
+          "id": "shared-senses",
           "name": "Compartir los Sentidos",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -148,7 +148,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Accede a los sentidos de otra persona (vista, oído, tacto) a distancia sin que lo perciba. El objetivo no nota nada inusual."
         },
         {
-          "id": "escudriñar-el-alma",
+          "id": "scry-the-soul",
           "name": "Escudriñar el Alma",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -157,7 +157,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Percibe el aura de una persona revelando sus emociones actuales, rasgos de carácter, estado sobrenatural y si está mintiendo."
         },
         {
-          "id": "toque-del-espiritu",
+          "id": "spirits-touch",
           "name": "Toque del Espíritu",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -166,7 +166,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Al tocar un objeto o lugar, revive las emociones e impresiones dejadas por quienes lo usaron (psicometría). Cuanto más intensa la emoción original, más clara la visión."
         },
         {
-          "id": "clarividencia",
+          "id": "clairvoyance",
           "name": "Clarividencia",
           "level": 5,
           "cost": "Un control de Enardecimiento",
@@ -175,7 +175,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Proyecta los sentidos a cualquier lugar conocido o que pueda visualizar, observando remotamente sin estar físicamente presente."
         },
         {
-          "id": "posesion",
+          "id": "possession",
           "name": "Posesión",
           "level": 5,
           "cost": "Dos Controles de Enardecimiento",
@@ -184,7 +184,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Amalgama: Dominación 3) Toma control total del cuerpo de un mortal desplazando su voluntad. El vampiro dirige al mortal como un títere mientras su propio cuerpo queda inerte."
         },
         {
-          "id": "telepatia",
+          "id": "telepathy",
           "name": "Telepatía",
           "level": 5,
           "cost": "Un control de Enardecimiento (más 1 punto de Fuerza de Voluntad con los vampiros no voluntarios)",
@@ -204,7 +204,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "iconType": "eye"
     },
     {
-      "id": "celeridad",
+      "id": "celerity",
       "name": "Celeridad",
       "description": "Celeridad permite que los vampiros se muevan más rápido que cualquier criatura natural. Hace más que conceder una velocidad sobrenatural: los vampiros que la emplean realmente parecen pensar casi tan rápido como actúan.",
       "tipo": "Físico",
@@ -212,7 +212,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Colérica. Miedo y terror absoluto, corredores, atletas, usuarios de alcaloides y anfetaminas, jugadores habituales de shooters en primera persona y otros juegos de acción rápida.",
       "powers": [
         {
-          "id": "gracia-felina",
+          "id": "cats-grace",
           "name": "Gracia Felina",
           "level": 1,
           "cost": "Ninguno",
@@ -221,7 +221,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Equilibrio y elegancia sobrehumanos. Nunca tropieza ni cae involuntariamente; puede moverse por superficies inestables, estrechas o resbaladizas sin dificultad."
         },
         {
-          "id": "reflejos-rapidos",
+          "id": "rapid-reflexes",
           "name": "Reflejos Rápidos",
           "level": 1,
           "cost": "Ninguno",
@@ -230,7 +230,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Reacciona instantáneamente a cualquier peligro. Añade Celeridad a la Iniciativa y permite defenderse de ataques por sorpresa que normalmente no podrían esquivarse."
         },
         {
-          "id": "presteza",
+          "id": "fleetness",
           "name": "Presteza",
           "level": 2,
           "cost": "Un control de Enardecimiento",
@@ -239,7 +239,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Añade el valor de Celeridad como dados extra a todas las reservas de acción física durante una escena completa."
         },
         {
-          "id": "pestañeo",
+          "id": "blink",
           "name": "Pestañeo",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -248,7 +248,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Se desplaza en línea recta a velocidad invisible, reposicionándose en combate o escapando antes de que nadie pueda reaccionar. Los testigos solo ven el punto de inicio y de llegada."
         },
         {
-          "id": "recorrido",
+          "id": "traversal",
           "name": "Recorrido",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -257,7 +257,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Corre por cualquier superficie —verticales, techos, superficies líquidas— a velocidad asombrosa. La velocidad de movimiento se multiplica drásticamente."
         },
         {
-          "id": "punteria-certera",
+          "id": "unerring-aim",
           "name": "Puntería Certera",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -266,7 +266,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Amalgama: Auspex 2) El tiempo se ralentiza perceptivamente, permitiendo disparos o lanzamientos de precisión imposible incluso contra objetivos en movimiento."
         },
         {
-          "id": "sorbo-de-elegancia",
+          "id": "draught-of-elegance",
           "name": "Sorbo de Elegancia",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -275,7 +275,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "La Sangre se satura con Celeridad. Quien beba de él obtiene temporalmente los beneficios de Gracia Felina y Reflejos Rápidos."
         },
         {
-          "id": "golpe-relampago",
+          "id": "lightning-strike",
           "name": "Golpe Relámpago",
           "level": 5,
           "cost": "Un control de Enardecimiento",
@@ -284,7 +284,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Golpea a un enemigo a velocidad invisible antes de que pueda reaccionar. El objetivo no puede gastar dados de defensa; recibe el impacto como si estuviera desprevenido."
         },
         {
-          "id": "segundo-quebrado",
+          "id": "split-second",
           "name": "Segundo Quebrado",
           "level": 5,
           "cost": "Un control de Enardecimiento",
@@ -304,7 +304,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "iconType": "bolt"
     },
     {
-      "id": "dominacion",
+      "id": "dominate",
       "name": "Dominación",
       "description": "Dominación permite al vampiro controlar las acciones de los demás, manipular sus recuerdos y obligar a las criaturas vivas a realizar actos que no llevarían a cabo por propia voluntad. La mayoría de los Poderes requieren contacto visual con la víctima.",
       "tipo": "Mental",
@@ -312,7 +312,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Flemática. La sangre de los sumisos o los dominantes, amos y esclavos, capitanes de la industria, los poderosos, líderes de sectas y sus seguidores.",
       "powers": [
         {
-          "id": "compeler",
+          "id": "compel",
           "name": "Compeler",
           "level": 1,
           "cost": "Ninguno",
@@ -321,7 +321,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Impone una orden simple e irresistible mediante contacto visual: una frase, una sola acción. La víctima la ejecuta de inmediato aunque vaya contra sus intereses."
         },
         {
-          "id": "nublar-la-memoria",
+          "id": "cloud-memory",
           "name": "Nublar la Memoria",
           "level": 1,
           "cost": "Ninguno",
@@ -330,7 +330,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Borra los últimos minutos de memoria de la víctima con una sola palabra (¡olvida!). La víctima no recuerda al vampiro ni lo que ocurrió."
         },
         {
-          "id": "dementacion",
+          "id": "dementation",
           "name": "Dementación",
           "level": 2,
           "cost": "Un control de Enardecimiento por escena",
@@ -339,7 +339,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Amalgama: Ofuscación 2) Siembra semillas de locura a través de conversación casual. La víctima desarrolla irracionalidades y fobias que persisten tiempo después."
         },
         {
-          "id": "mesmerismo",
+          "id": "mesmerize",
           "name": "Mesmerismo",
           "level": 2,
           "cost": "Un control de Enardecimiento",
@@ -348,7 +348,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Hipnotiza a la víctima implantando órdenes complejas que ejecutará como si fueran propias. Requiere contacto visual prolongado y relativo silencio."
         },
         {
-          "id": "directriz-sumergida",
+          "id": "submerged-directive",
           "name": "Directriz Sumergida",
           "level": 3,
           "cost": "Sin coste adicional",
@@ -357,7 +357,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Amplía Mesmerismo para implantar órdenes con disparadores condicionales: la orden permanece dormida hasta que ocurra un evento específico fijado por el vampiro."
         },
         {
-          "id": "mente-olvidadiza",
+          "id": "forgetful-mind",
           "name": "Mente Olvidadiza",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -366,7 +366,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Reescribe o borra fragmentos enteros de la memoria de la víctima, pudiendo sustituirlos por recuerdos falsos detallados y coherentes."
         },
         {
-          "id": "racionalizar",
+          "id": "rationalize",
           "name": "Racionalizar",
           "level": 4,
           "cost": "Sin coste adicional",
@@ -375,7 +375,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Las víctimas de Dominación creen firmemente que actuaron por voluntad propia. No pueden ser convencidas de lo contrario por medios mundanos."
         },
         {
-          "id": "decreto-terminal",
+          "id": "terminal-decree",
           "name": "Decreto Terminal",
           "level": 5,
           "cost": "Sin coste adicional de Ansia, pero el coste en Humanidad es potencialmente severo",
@@ -384,7 +384,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Amplía cualquier Poder de Dominación para que pueda incluir órdenes que conduzcan a la muerte de la víctima. No hay penalización de dados por el instinto de supervivencia, pero viola Humanidad con severidad."
         },
         {
-          "id": "manipulacion-en-masa",
+          "id": "mass-manipulation",
           "name": "Manipulación en Masa",
           "level": 5,
           "cost": "Un control de Enardecimiento además del coste del Poder amplificado",
@@ -404,7 +404,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "iconType": "crown"
     },
     {
-      "id": "fortaleza",
+      "id": "fortitude",
       "name": "Fortaleza",
       "description": "Muy apreciada por los inmortales, Fortaleza permite resistir asaltos físicos y mentales. Quienes poseen Fortaleza son ejemplos de los pilares impasibles de la sociedad de los Vástagos, capaces de resistir golpes y encantamientos sin moverse o mostrar deterioro.",
       "tipo": "Físico",
@@ -412,7 +412,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Melancólica. Supervivientes de guerra, maltratos o desgracias; corredores de resistencia; alpinistas; infantería y fuerzas especiales; aquéllos con un sistema inmunológico muy fuerte.",
       "powers": [
         {
-          "id": "mente-imperturbable",
+          "id": "unswayable-mind",
           "name": "Mente Imperturbable",
           "level": 1,
           "cost": "Ninguno",
@@ -421,7 +421,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Resistencia mística a manipulación mental mundana: coacción, drogas, tortura, interrogatorio. Añade Fortaleza a todas las tiradas de resistencia contra dichos efectos."
         },
         {
-          "id": "resiliencia",
+          "id": "resilience",
           "name": "Resiliencia",
           "level": 1,
           "cost": "Ninguno",
@@ -430,7 +430,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Añade el valor de Fortaleza directamente como casillas extra de Salud. Pasivo y permanente; aumenta la resistencia total del vampiro de forma inmediata."
         },
         {
-          "id": "bestias-resistentes",
+          "id": "enduring-beasts",
           "name": "Bestias Resistentes",
           "level": 2,
           "cost": "Ninguno (para famulus); un control de Enardecimiento (para otros animales)",
@@ -439,7 +439,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Amalgama: Animalismo 1) Comparte parte de la dureza sobrenatural del vampiro con los animales bajo su control, aumentando su resistencia al daño."
         },
         {
-          "id": "dureza",
+          "id": "toughness",
           "name": "Dureza",
           "level": 2,
           "cost": "Un control de Enardecimiento",
@@ -448,7 +448,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Al gastar Ansia tras recibir daño agravado, convierte automáticamente 1 nivel de agravado en superficial por punto de Fortaleza. Sin tirada; solo activación."
         },
         {
-          "id": "desafiar-prohibicion",
+          "id": "defy-bane",
           "name": "Desafiar Prohibición",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -457,7 +457,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Resistencia temporal al fuego, la luz solar y otras debilidades específicas del clan. La duración e intensidad dependen del margen obtenido."
         },
         {
-          "id": "fortificar-la-fachada-interior",
+          "id": "fortify-the-inner-facade",
           "name": "Fortificar la Fachada Interior",
           "level": 3,
           "cost": "Ninguno",
@@ -466,7 +466,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Protege la mente contra Dominación, Auspex y otros poderes mentales. Añade Fortaleza a las tiradas de resistencia contra poderes que afecten la mente."
         },
         {
-          "id": "sorbo-de-aguante",
+          "id": "draught-of-endurance",
           "name": "Sorbo de Aguante",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -475,7 +475,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "La Sangre se satura con Fortaleza. Quien beba de él obtiene temporalmente los beneficios de Mente Imperturbable y Resiliencia."
         },
         {
-          "id": "arrojo-por-el-dolor",
+          "id": "prowess-from-pain",
           "name": "Arrojo por el Dolor",
           "level": 5,
           "cost": "Un control de Enardecimiento",
@@ -484,7 +484,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Cada punto de daño agravado recibido añade un dado extra a todas las reservas de acción del vampiro. El dolor lo hace más letal."
         },
         {
-          "id": "carne-de-marmol",
+          "id": "flesh-of-marble",
           "name": "Carne de Mármol",
           "level": 5,
           "cost": "Dos controles de Enardecimiento",
@@ -504,7 +504,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "iconType": "shield"
     },
     {
-      "id": "ofuscacion",
+      "id": "obfuscation",
       "name": "Ofuscación",
       "description": "Para los Vástagos que practican Ofuscación, la Disciplina proporciona la cobertura perfecta para acercarse a una víctima, parecer inofensivos y escapar cuando los ánimos se caldean demasiado. Los Poderes de Ofuscación funcionan mediante mesmerismo ambiental de bajo nivel.",
       "tipo": "Mental",
@@ -512,7 +512,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Melancólica. Los ignorados e invisibles, los sintecho, olvidados y deprimidos; espías, carteristas, sirvientes excelentes, encargados de material y tramoyistas.",
       "powers": [
         {
-          "id": "capa-de-sombras",
+          "id": "cloak-of-shadows",
           "name": "Capa de Sombras",
           "level": 1,
           "cost": "Ninguno",
@@ -521,7 +521,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Si está quieto y con algo de cobertura, el vampiro se funde con el entorno. Prácticamente invisible para quien no sepa exactamente dónde mirar."
         },
         {
-          "id": "silencio-de-la-muerte",
+          "id": "silence-of-death",
           "name": "Silencio de la Muerte",
           "level": 1,
           "cost": "Ninguno",
@@ -530,7 +530,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Anula todo sonido generado por el usuario: pasos, ropa, respiración. Se mueve en silencio absoluto sobrenatural."
         },
         {
-          "id": "paso-invisible",
+          "id": "unseen-passage",
           "name": "Paso Invisible",
           "level": 2,
           "cost": "Un control de Enardecimiento",
@@ -539,7 +539,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "El vampiro puede moverse libremente mientras permanece completamente invisible. Cualquier acción violenta o dramática rompe el efecto automáticamente."
         },
         {
-          "id": "fantasma-en-la-maquina",
+          "id": "ghost-in-the-machine",
           "name": "Fantasma en la Máquina",
           "level": 3,
           "cost": "Sin coste adicional",
@@ -548,7 +548,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Transmite la invisibilidad a cámaras y dispositivos electrónicos. El vampiro no aparece en grabaciones, feeds en vivo ni sistemas de seguridad."
         },
         {
-          "id": "mascara-de-las-mil-caras",
+          "id": "mask-of-a-thousand-faces",
           "name": "Máscara de las Mil Caras",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -557,7 +557,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "En lugar de desaparecer, adopta el aspecto de un transeúnte genérico e irreconocible. Nadie recuerda su cara ni puede describirla; parece una persona diferente para cada observador."
         },
         {
-          "id": "desvanecerse",
+          "id": "vanish",
           "name": "Desvanecerse",
           "level": 4,
           "cost": "Como el Poder aumentado",
@@ -566,7 +566,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Prerrequisito: Capa de Sombras) Activa Capa de Sombras o Paso Invisible incluso estando bajo observación directa, sin necesidad de moverse ni cubrirse primero."
         },
         {
-          "id": "ocultar",
+          "id": "conceal",
           "name": "Ocultar",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -575,7 +575,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Amalgama: Auspex 3) Extiende la Ofuscación a objetos inanimados: puede ocultar puertas, vehículos, cadáveres u otros objetos de hasta cierto tamaño."
         },
         {
-          "id": "disfraz-del-impostor",
+          "id": "impostors-guise",
           "name": "Disfraz del Impostor",
           "level": 5,
           "cost": "Un control de Enardecimiento",
@@ -584,7 +584,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Prerrequisito: Máscara de las Mil Caras) Adopta la apariencia exacta de una persona específica conocida, incluyendo voz y manierismos."
         },
         {
-          "id": "encubrimiento-de-la-concurrencia",
+          "id": "cloak-the-gathering",
           "name": "Encubrimiento de la Concurrencia",
           "level": 5,
           "cost": "Un control de Enardecimiento además del coste del Poder extendido",
@@ -604,7 +604,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "iconType": "ghost"
     },
     {
-      "id": "potencia",
+      "id": "potence",
       "name": "Potencia",
       "description": "Potencia es la fuerza impulsada con Vitae más allá de las capacidades de otros vampiros. Es la capacidad del vampiro de obligar a su cuerpo a realizar acciones imposibles de replicar por los mortales.",
       "tipo": "Físico",
@@ -612,7 +612,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Colérica. Los fuertes y saludables; atletas y hombres y mujeres jóvenes en su mejor momento, ratas de gimnasio, luchadores, trabajadores de la construcción y leñadores, estibadores.",
       "powers": [
         {
-          "id": "cuerpo-letal",
+          "id": "lethal-body",
           "name": "Cuerpo Letal",
           "level": 1,
           "cost": "Ninguno",
@@ -621,7 +621,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Los golpes desarmados causan daño agravado a mortales, desgarrando carne y rompiendo huesos. Contra vampiros sigue siendo daño superficial."
         },
         {
-          "id": "salto-vertiginoso",
+          "id": "soaring-leap",
           "name": "Salto Vertiginoso",
           "level": 1,
           "cost": "Ninguno",
@@ -630,7 +630,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Salta alturas y distancias imposibles para cualquier humano, proporcionales a su nivel de Potencia. Puede usarse para escalar edificios de un salto."
         },
         {
-          "id": "bravura",
+          "id": "prowess",
           "name": "Bravura",
           "level": 2,
           "cost": "Un control de Enardecimiento",
@@ -639,7 +639,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Satura el cuerpo con Vitae muscular. Añade el valor de Potencia como dados extra a todas las reservas de acción física (combate cuerpo a cuerpo, atletismo, fuerza) durante una escena."
         },
         {
-          "id": "agarre-asombroso",
+          "id": "uncanny-grip",
           "name": "Agarre Asombroso",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -648,7 +648,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Hunde dedos y pies en cualquier superficie dura, permitiendo escalar paredes completamente lisas. En combate puede inmovilizar a un objetivo con Fuerza sobrenatural."
         },
         {
-          "id": "alimentacion-brutal",
+          "id": "brutal-feed",
           "name": "Alimentación Brutal",
           "level": 3,
           "cost": "Ninguno",
@@ -657,7 +657,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Puede alimentarse a distancia de hasta unos metros, arrancando la sangre del cuerpo de la víctima sin contacto físico. La víctima sufre daño. Conocido como el \"Beso Salvaje\"."
         },
         {
-          "id": "chispa-de-ira",
+          "id": "spark-of-rage",
           "name": "Chispa de Ira",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -666,7 +666,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Amalgama: Presencia 3) Transmite rabia sobrenatural a criaturas cercanas, pudiendo desencadenar Frenesís en otros vampiros o brutalidad en mortales."
         },
         {
-          "id": "sorbo-de-poderio",
+          "id": "draught-of-might",
           "name": "Sorbo de Poderío",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -675,7 +675,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "La Sangre se satura con Potencia. Quien beba de él obtiene temporalmente fuerza sobrenatural y los beneficios de Cuerpo Letal."
         },
         {
-          "id": "puño-de-cain",
+          "id": "fist-of-caine",
           "name": "Puño de Caín",
           "level": 5,
           "cost": "Un control de Enardecimiento",
@@ -684,7 +684,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Los golpes desarmados causan daño agravado incluso a vampiros, pudiendo desmembrar. El daño es devastador contra cualquier tipo de criatura."
         },
         {
-          "id": "temblor-de-tierra",
+          "id": "earthshock",
           "name": "Temblor de Tierra",
           "level": 5,
           "cost": "Dos controles de Enardecimiento",
@@ -704,7 +704,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "iconType": "fist"
     },
     {
-      "id": "presencia",
+      "id": "presence",
       "name": "Presencia",
       "description": "Presencia es una Disciplina que expresa la existencia bipolar del vampiro. Sirve para atraer a las víctimas o dispersarlas aterrorizadas. Permite el control de multitudes, la manipulación emocional y la devoción forzada. Presencia afecta las emociones de aquéllos sujetos a ella, no las mentes.",
       "tipo": "Mental",
@@ -712,7 +712,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Sanguínea. Los bellos y lujuriosos, aquéllos completamente enamorados del vampiro, modelos, actores y estrellas de cine, convincentes oradores públicos y privados, estrellas de YouTube e influencers de Instagram.",
       "powers": [
         {
-          "id": "atemorizar",
+          "id": "daunt",
           "name": "Atemorizar",
           "level": 1,
           "cost": "Ninguno",
@@ -721,7 +721,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Emana un aura amenazante de depredador sobrenatural. Los que fallan la tirada sienten pánico instintivo: huyen, se someten o quedan paralizados según el margen."
         },
         {
-          "id": "fascinacion",
+          "id": "awe",
           "name": "Fascinación",
           "level": 1,
           "cost": "Ninguno",
@@ -730,7 +730,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Toda persona cercana siente una atracción inexplicable e irresistible hacia el vampiro. Añade Presencia como dados extra a pruebas sociales."
         },
         {
-          "id": "beso-persistente",
+          "id": "lingering-kiss",
           "name": "Beso Persistente",
           "level": 2,
           "cost": "Ninguno",
@@ -739,7 +739,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Los mortales de los que se alimenta se vuelven adictos al Beso del vampiro, buscando activamente repetir la experiencia y volviéndose fácilmente manejables."
         },
         {
-          "id": "encantamiento",
+          "id": "entrancement",
           "name": "Encantamiento",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -748,7 +748,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Enfoca el encanto sobrenatural en una sola persona, induciéndole una fascinación intensa similar al enamoramiento profundo."
         },
         {
-          "id": "mirada-aterradora",
+          "id": "dread-gaze",
           "name": "Mirada Aterradora",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -757,7 +757,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Con una sola mirada, infunde terror absoluto en un objetivo. El sujeto huye, queda paralizado o se somete completamente según el margen obtenido."
         },
         {
-          "id": "invocacion",
+          "id": "summon",
           "name": "Invocación",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -766,7 +766,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Convoca mentalmente a alguien sobre quien ya haya usado Presencia. El objetivo siente una necesidad irresistible de acudir, sin saber necesariamente por qué."
         },
         {
-          "id": "voz-irresistible",
+          "id": "irresistible-voice",
           "name": "Voz Irresistible",
           "level": 4,
           "cost": "Sin coste adicional",
@@ -775,7 +775,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Amalgama: Dominación 1) Las órdenes de Dominación funcionan solo con la voz, sin necesidad de contacto visual directo."
         },
         {
-          "id": "magnetismo-de-estrella",
+          "id": "star-magnetism",
           "name": "Magnetismo de Estrella",
           "level": 5,
           "cost": "Un control de Enardecimiento adicional",
@@ -784,7 +784,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Los efectos de Presencia se extienden a quien lo vea en transmisiones en directo o escuche en radio. No requiere presencia física."
         },
         {
-          "id": "majestad",
+          "id": "majesty",
           "name": "Majestad",
           "level": 5,
           "cost": "Dos controles de Enardecimiento",
@@ -812,7 +812,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Sangre animal, especialmente de aquéllos que coinciden con la forma adoptada; la sangre de hombres lobo, changelings y otras quimeras sobrenaturales de hombres y bestias.",
       "powers": [
         {
-          "id": "ojos-de-la-bestia",
+          "id": "eyes-of-the-beast",
           "name": "Ojos de la Bestia",
           "level": 1,
           "cost": "Ninguno",
@@ -821,7 +821,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Genera un brillo rojo sobrenatural en los ojos que permite ver en oscuridad absoluta con total claridad. Es visible para otros en la oscuridad."
         },
         {
-          "id": "peso-de-la-pluma",
+          "id": "weight-of-the-feather",
           "name": "Peso de la Pluma",
           "level": 1,
           "cost": "Ninguno",
@@ -830,7 +830,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Reduce su masa efectiva. Cae sin daño desde cualquier altura, no activa sensores de presión y puede trepar superficies sin dejar marca."
         },
         {
-          "id": "armas-salvajes",
+          "id": "feral-weapons",
           "name": "Armas Salvajes",
           "level": 2,
           "cost": "Un control de Enardecimiento",
@@ -839,7 +839,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Extiende garras y colmillos a proporciones monstruosas. Causan daño agravado a mortales y vampiros. Las garras pueden escalar superficies."
         },
         {
-          "id": "cambiar-de-forma",
+          "id": "shapechange",
           "name": "Cambiar de Forma",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -848,7 +848,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Adopta la forma de un animal de tamaño similar (lobo, pantera, grandes reptiles), adquiriendo todas sus capacidades físicas naturales."
         },
         {
-          "id": "fusion-con-la-tierra",
+          "id": "earth-meld",
           "name": "Fusión con la Tierra",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -857,7 +857,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Se hunde en la tierra o cualquier superficie natural para dormir el día de forma segura e indetectable. Solo el amanecer o un peligro grave lo despiertan."
         },
         {
-          "id": "metamorfosis",
+          "id": "metamorphosis",
           "name": "Metamorfosis",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -866,7 +866,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "(Prerrequisito: Cambiar de Forma) Puede asumir formas adicionales de animales y combinar rasgos de distintas formas en una sola."
         },
         {
-          "id": "corazon-liberado",
+          "id": "the-unfettered-heart",
           "name": "Corazón Liberado",
           "level": 5,
           "cost": "Ninguno",
@@ -875,7 +875,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "El corazón se desprende y se guarda fuera del cuerpo. Mientras esté separado, el vampiro es inmune a la estaca en el pecho."
         },
         {
-          "id": "forma-de-niebla",
+          "id": "mist-form",
           "name": "Forma de Niebla",
           "level": 5,
           "cost": "De uno a tres controles de Enardecimiento",
@@ -893,7 +893,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "iconType": "claws"
     },
     {
-      "id": "hechiceria-de-sangre",
+      "id": "blood-sorcery",
       "name": "Hechicería de Sangre",
       "description": "También llamada Taumaturgia (por los Tremere) o Quietus/Extinción (por los Banu Haqim). A diferencia de otras Disciplinas, los practicantes de Hechicería de Sangre requieren profesores. Confiere Poderes y desbloquea la capacidad de realizar rituales hasta el nivel del usuario en la Disciplina.",
       "tipo": "Hechicería",
@@ -901,7 +901,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "resonancia": "Sanguínea. Aunque no es inherente a la Sangre en sí misma, Hechicería de Sangre responde con entusiasmo a la sangre de ocultistas humanos, hechiceros y líderes de sectas, así como a hemofílicos y bibliófilos.",
       "powers": [
         {
-          "id": "sabor-de-la-sangre",
+          "id": "a-taste-for-blood",
           "name": "Sabor de la Sangre",
           "level": 1,
           "cost": "Ninguno",
@@ -910,7 +910,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Al probar una gota de sangre identifica al dueño: clan, generación aproximada, Potencia de Sangre y nivel de Ansia actual."
         },
         {
-          "id": "vitae-corrosiva",
+          "id": "corrosive-vitae",
           "name": "Vitae Corrosiva",
           "level": 1,
           "cost": "Uno o más controles de Enardecimiento",
@@ -919,7 +919,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Altera su Sangre haciéndola corrosiva al contacto con materiales muertos: disuelve ropa, madera, metal, cerrojo o grilletes. El Ansia gastado determina la potencia del ácido."
         },
         {
-          "id": "extinguir-vitae",
+          "id": "extinguish-vitae",
           "name": "Extinguir Vitae",
           "level": 2,
           "cost": "Un control de Enardecimiento",
@@ -928,7 +928,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Elimina las propiedades de no-vida de la sangre de otro vampiro a distancia, incrementando drásticamente su Ansia sin necesidad de contacto."
         },
         {
-          "id": "sangre-de-potencia",
+          "id": "blood-of-potency",
           "name": "Sangre de Potencia",
           "level": 3,
           "cost": "Un control de Enardecimiento",
@@ -937,7 +937,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Concentra su Sangre para elevar temporalmente su Potencia de Sangre efectiva, mejorando todos los beneficios asociados a ella."
         },
         {
-          "id": "toque-de-escorpion",
+          "id": "scorpions-touch",
           "name": "Toque de Escorpión",
           "level": 3,
           "cost": "Uno o más controles de Enardecimiento",
@@ -946,7 +946,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Transmuta su Sangre en veneno paralizante. Paraliza mortales y debilita vampiros. Puede impregnar armas blancas con el veneno."
         },
         {
-          "id": "robo-de-vitae",
+          "id": "theft-of-vitae",
           "name": "Robo de Vitae",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -955,7 +955,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Abre una arteria a distancia en una víctima y atrae su sangre hacia el usuario sin contacto físico. La víctima sufre el daño de alimentarse de ella a la fuerza."
         },
         {
-          "id": "caldero-de-sangre",
+          "id": "cauldron-of-blood",
           "name": "Caldero de Sangre",
           "level": 5,
           "cost": "Un control de Enardecimiento y obtener una (o más) Máculas",
@@ -964,7 +964,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Hace hervir la sangre de la víctima en sus propias venas, causando daño agravado masivo. Uno de los poderes más letales de la Hechicería."
         },
         {
-          "id": "caricia-de-baal",
+          "id": "baals-caress",
           "name": "Caricia de Baal",
           "level": 5,
           "cost": "Uno o más controles de Enardecimiento",
@@ -983,7 +983,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       "iconType": "blood"
     },
     {
-      "id": "alquimia-de-sangre-debil",
+      "id": "thin-blood-alchemy",
       "name": "Alquimia de Sangre Débil",
       "description": "La Sangre Débil de las últimas Generaciones apenas tiene poder propio, pero ciertos Sangre Débil han aprendido a usarla como catalizador. Al mezclar sangre humana fuertemente resonante y a veces otras sustancias con su propia Vitae, los alquimistas pueden simular una amplia gama de Poderes de otras Disciplinas y crear algunos Poderes únicos propios. La Alquimia puede simular algunos Poderes de Hechicería de Sangre, pero no rituales.",
       "tipo": "Especial (sólo para Sangre Débil)",
@@ -1008,7 +1008,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
       ],
       "powers": [
         {
-          "id": "alcance-lejano",
+          "id": "far-reach",
           "name": "Alcance Lejano",
           "level": 1,
           "cost": "Un control de Enardecimiento",
@@ -1017,7 +1017,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Mueve objetos o personas a distancia mediante telekinesis alquímica. La fuerza y alcance dependen del margen de la tirada."
         },
         {
-          "id": "hieros-gamos-profano",
+          "id": "profane-hieros-gamos",
           "name": "Hieros Gamos Profano",
           "level": 1,
           "cost": "Un control de Enardecimiento (destilación)",
@@ -1026,7 +1026,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Permite cambiar de sexo biológico aprovechando la naturaleza fluida de la condición de Sangre Débil. El proceso tarda horas y requiere destilación."
         },
         {
-          "id": "neblina",
+          "id": "haze",
           "name": "Neblina",
           "level": 1,
           "cost": "Un control de Enardecimiento",
@@ -1035,7 +1035,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Genera una nube de niebla persistente alrededor del usuario que oculta su identidad, dificulta los ataques en su contra y reduce la visibilidad."
         },
         {
-          "id": "envolver",
+          "id": "envelop",
           "name": "Envolver",
           "level": 2,
           "cost": "Un control de Enardecimiento",
@@ -1044,7 +1044,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "La niebla se adhiere a la víctima elegida, cegándola completamente. Los mortales además comienzan a asfixiarse dentro de la nube."
         },
         {
-          "id": "defraccionar",
+          "id": "defractionate",
           "name": "Defraccionar",
           "level": 3,
           "cost": "Un control de Enardecimiento (destilación)",
@@ -1053,7 +1053,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Produce un elixir que, añadido a sangre médica fraccionada, la convierte temporalmente en Vitae utilizable por cualquier vampiro."
         },
         {
-          "id": "impetu-aereo",
+          "id": "aerial-impulse",
           "name": "Ímpetu Aéreo",
           "level": 4,
           "cost": "Un control de Enardecimiento",
@@ -1062,7 +1062,7 @@ export const DISCIPLINES_DATA: DisciplinesData =
           "description": "Permite levitar y volar a velocidad considerable. Puede volar en cualquier dirección y cargar objetos o personas de peso limitado."
         },
         {
-          "id": "despertar-al-durmiente",
+          "id": "awaken-the-sleeper",
           "name": "Despertar al Durmiente",
           "level": 5,
           "cost": "Un control de Enardecimiento (destilación)",

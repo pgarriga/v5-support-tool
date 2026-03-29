@@ -712,7 +712,7 @@ a { text-decoration: none; color: inherit; }
 }
 .amalgama-link:hover { color: #e0bf72; }
 
-/* ─── Copy button (MisPoderesView) ─── */
+/* ─── Copy button (MyPowersView) ─── */
 .copy-btn {
   display: inline-flex;
   align-items: center;
@@ -732,3 +732,5 @@ a { text-decoration: none; color: inherit; }
 }
 .copy-btn:hover { color: var(--parchment); border-color: #5a3070; background: var(--void-card2); }
 .copy-btn.copied { color: var(--gold); border-color: var(--gold-dim); }
+.copy-btn--danger { color: #c0392b; border-color: #7a1a1a; }
+.copy-btn--danger:hover { color: #fff; border-color: #c0392b; background: #7a1a1a; }

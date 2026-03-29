@@ -23,7 +23,7 @@ const disciplines = computed<Discipline[]>(() => {
 })
 
 function goTo(id: string) {
-  router.push(`/disciplina/${id}`)
+  router.push(`/discipline/${id}`)
 }
 </script>
 

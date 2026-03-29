@@ -42,7 +42,7 @@ const amalgamaSegments = computed(() => {
   return parseAmalgama(text, disciplines.value)
 })
 
-function goBack(): void { router.push(`/disciplina/${route.params['id']}`) }
+function goBack(): void { router.push(`/discipline/${route.params['id']}`) }
 </script>
 
 <template>
@@ -140,7 +140,7 @@ function goBack(): void { router.push(`/disciplina/${route.params['id']}`) }
             <template v-for="(seg, i) in amalgamaSegments" :key="i">
               <router-link
                 v-if="seg.disciplineId"
-                :to="`/disciplina/${seg.disciplineId}`"
+                :to="`/discipline/${seg.disciplineId}`"
                 class="amalgama-link"
               >{{ seg.text }}</router-link>
               <span v-else>{{ seg.text }}</span>
