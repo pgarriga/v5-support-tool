@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { DISCIPLINES_DATA } from '../data'
 import { DISCIPLINE_ICONS } from '../icons'
 import { useFavorites } from '../composables/useFavorites'
 import { useI18n } from '../composables/useI18n'
+import { useData } from '../composables/useData'
 import { artGradient, levelDots, shortCost } from '../helpers'
 
 const router = useRouter()
 const { isFavorite, toggle } = useFavorites()
 const { t } = useI18n()
+const { disciplines } = useData()
 
 const groupedPowers = computed(() => {
-  return DISCIPLINES_DATA.disciplines
+  return disciplines.value
     .map(disc => ({
       discipline: disc,
       powers: disc.powers

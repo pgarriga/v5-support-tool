@@ -2,13 +2,15 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { DISCIPLINE_ICONS } from '../icons'
-import { disciplineById, levelDots, shortCost, shortDuration, artGradient } from '../helpers'
+import { levelDots, shortCost, shortDuration, artGradient } from '../helpers'
 import { useFavorites } from '../composables/useFavorites'
 import { useI18n } from '../composables/useI18n'
+import { useData } from '../composables/useData'
 
 const route  = useRoute()
 const router = useRouter()
 const { t } = useI18n()
+const { disciplineById } = useData()
 
 const discipline = computed(() => disciplineById(route.params['id'] as string))
 const { isFavorite, toggle } = useFavorites()

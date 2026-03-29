@@ -1,20 +1,21 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { DISCIPLINES_DATA } from '../data'
 import { DISCIPLINE_ICONS } from '../icons'
 import { artGradient } from '../helpers'
 import { useI18n } from '../composables/useI18n'
+import { useData } from '../composables/useData'
 import type { Discipline } from '../types'
 
 const search = ref('')
 const router  = useRouter()
 const { t } = useI18n()
+const { disciplines: allDisciplines } = useData()
 
 const disciplines = computed<Discipline[]>(() => {
   const q = search.value.toLowerCase().trim()
-  if (!q) return DISCIPLINES_DATA.disciplines
-  return DISCIPLINES_DATA.disciplines.filter(d =>
+  if (!q) return allDisciplines.value
+  return allDisciplines.value.filter(d =>
     d.name.toLowerCase().includes(q) ||
     d.clanes.some(c => c.toLowerCase().includes(q)) ||
     d.tipo.toLowerCase().includes(q)
