@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node node_modules/vite/bin/vite.js",
     "build": "node node_modules/vite/bin/vite.js build",
-    "preview": "node node_modules/vite/bin/vite.js preview"
+    "preview": "node node_modules/vite/bin/vite.js preview",
+    "version": "node -e \"const fs=require('fs');const v=require('./package.json').version;const r=fs.readFileSync('README.md','utf8');fs.writeFileSync('README.md',r.replace(/version-[\\d.]+/,'version-'+v));\" && git add README.md"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
