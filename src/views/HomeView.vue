@@ -7,29 +7,19 @@ import { useI18n } from '../composables/useI18n'
 import { useData } from '../composables/useData'
 import type { Discipline } from '../types'
 
-const search    = ref('')
-const filterType = ref('')
-const router    = useRouter()
+const search = ref('')
+const router  = useRouter()
 const { t } = useI18n()
 const { disciplines: allDisciplines } = useData()
 
-const availableTypes = computed<string[]>(() => {
-  const types = new Set(allDisciplines.value.map(d => d.tipo).filter(Boolean))
-  return Array.from(types).sort()
-})
-
 const disciplines = computed<Discipline[]>(() => {
   const q = search.value.toLowerCase().trim()
-  return allDisciplines.value.filter(d => {
-    const matchesType = !filterType.value || d.tipo === filterType.value
-    if (!matchesType) return false
-    if (!q) return true
-    return (
-      d.name.toLowerCase().includes(q) ||
-      d.clanes.some(c => c.toLowerCase().includes(q)) ||
-      d.tipo.toLowerCase().includes(q)
-    )
-  })
+  if (!q) return allDisciplines.value
+  return allDisciplines.value.filter(d =>
+    d.name.toLowerCase().includes(q) ||
+    d.clanes.some(c => c.toLowerCase().includes(q)) ||
+    d.tipo.toLowerCase().includes(q)
+  )
 })
 
 function goTo(id: string) {
@@ -52,7 +42,7 @@ function goTo(id: string) {
     </header>
 
     <!-- ── Search ── -->
-    <div class="mx-auto px-4 pt-4 pb-2" style="max-width: 28rem;">
+    <div class="mx-auto px-4 pt-4 pb-1" style="max-width: 28rem;">
       <input
         v-model="search"
         class="search-input"
@@ -63,27 +53,9 @@ function goTo(id: string) {
       />
     </div>
 
-    <!-- ── Type filters ── -->
-    <div class="mx-auto px-4 pb-3" style="max-width: 28rem;">
-      <div class="filter-chips" role="group" :aria-label="t.discipline.type">
-        <button
-          class="filter-chip"
-          :class="{ active: filterType === '' }"
-          @click="filterType = ''"
-        >{{ t.home.filterAll }}</button>
-        <button
-          v-for="tipo in availableTypes"
-          :key="tipo"
-          class="filter-chip"
-          :class="{ active: filterType === tipo }"
-          @click="filterType = tipo"
-        >{{ tipo }}</button>
-      </div>
-    </div>
-
     <!-- ── Disciplines grid ── -->
     <main v-if="disciplines.length"
-          class="container-fluid px-3 px-sm-4 py-2 pb-5 max-content mx-auto">
+          class="container-fluid px-3 px-sm-4 py-4 pb-5 max-content mx-auto">
       <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-2 g-sm-3">
 
         <div class="col" v-for="d in disciplines" :key="d.id">

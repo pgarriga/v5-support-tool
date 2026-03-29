@@ -14,7 +14,6 @@ const es = {
     resonance:         'Resonancia',
     powers:            'poderes',
     noResults:         'No se encontraron disciplinas para',
-    filterAll:         'Todas',
   },
   discipline: {
     back:          'Disciplinas',
@@ -84,7 +83,6 @@ const en: typeof es = {
     resonance:         'Resonance',
     powers:            'powers',
     noResults:         'No disciplines found for',
-    filterAll:         'All',
   },
   discipline: {
     back:          'Disciplines',

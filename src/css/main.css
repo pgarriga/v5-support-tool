@@ -624,36 +624,6 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 0 12px rgba(201,168,76,0.15);
 }
 
-/* ─── Filter chips (HomeView) ─── */
-.filter-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.filter-chip {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.85rem;
-  border: 1px solid var(--void-border);
-  border-radius: 20px;
-  background: var(--void-card);
-  color: var(--parchment-dim);
-  cursor: pointer;
-  transition: all var(--transition);
-  min-height: 36px;
-  display: inline-flex;
-  align-items: center;
-}
-.filter-chip:hover { color: var(--parchment); border-color: #5a3070; }
-.filter-chip.active {
-  color: var(--gold);
-  border-color: var(--gold-dim);
-  background: var(--void-card2);
-}
-
 /* ─── Power notes (PowerView) ─── */
 .power-notes {
   margin-top: 1.5rem;

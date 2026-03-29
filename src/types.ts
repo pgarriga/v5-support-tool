@@ -26,6 +26,13 @@ export interface Discipline {
   clanes: string[]
   iconType: IconType
   powers: Power[]
+  metodos?: AlchemyMethod[]
+}
+
+export interface AlchemyMethod {
+  id: string
+  name: string
+  description: string
 }
 
 export interface DisciplinesData {
