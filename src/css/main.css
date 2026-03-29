@@ -474,6 +474,17 @@ a { text-decoration: none; color: inherit; }
 .power-card p, .discipline-card p { margin-bottom: 0; }
 .discipline-card a, .power-card a { color: inherit; }
 
+/* SVGs injected via v-html must fill their container on all browsers */
+.art-icon svg,
+.power-art-icon svg,
+.disc-icon-inner svg,
+.power-detail-icon svg,
+.disc-group-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* ─── Star button (favoritos) ─── */
 .star-btn {
   position: absolute;
