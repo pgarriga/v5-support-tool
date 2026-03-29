@@ -1,6 +1,6 @@
 {
   "name": "v5-support-tool",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Herramienta de soporte para partidas de Vampiro: La Mascarada 5ª Edición",
   "scripts": {
     "dev": "node node_modules/vite/bin/vite.js",
