@@ -1,0 +1,426 @@
+/* ══════════════════════════════════════════════
+   VAMPIRO V5 — Estilos góticos custom
+   Bootstrap maneja el grid; aquí todo lo demás
+   ══════════════════════════════════════════════ */
+
+/* ─── Variables globales ─── */
+:root {
+  --font-title: 'Cinzel Decorative', serif;
+  --font-body:  'Cormorant Garamond', serif;
+  --transition: 0.25s ease;
+  /* Paleta gótica */
+  --void:          #0d0b14;
+  --void-card:     #13101e;
+  --void-card2:    #1a1628;
+  --void-border:   #2e2040;
+  --blood:         #8b0000;
+  --parchment:     #d4c9b8;
+  --parchment-dim: #8a7f70;
+  --parchment-faint: #504840;
+  --gold:          #c9a84c;
+  --gold-dim:      #8a6a2a;
+}
+
+/* ─── Base ─── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  background-color: var(--void);
+  color: var(--parchment);
+  /* Neutralizar estilos Bootstrap */
+  line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; }
+
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #0d0b14; }
+::-webkit-scrollbar-thumb { background: #5a3070; border-radius: 3px; }
+
+/* ─── Clases de color custom ─── */
+.text-parchment       { color: var(--parchment)       !important; }
+.text-parchment-dim   { color: var(--parchment-dim)   !important; }
+.text-parchment-faint { color: var(--parchment-faint) !important; }
+.text-gold            { color: var(--gold)             !important; }
+.text-gold-dim        { color: var(--gold-dim)         !important; }
+.bg-void              { background-color: var(--void)  !important; }
+
+/* ─── Tipografía custom ─── */
+.font-title    { font-family: var(--font-title) !important; }
+.font-body     { font-family: var(--font-body)  !important; }
+.tracking-wide    { letter-spacing: 0.08em; }
+.tracking-wider   { letter-spacing: 0.12em; }
+.tracking-widest  { letter-spacing: 0.25em; }
+.leading-tight    { line-height: 1.25; }
+.leading-snug     { line-height: 1.375; }
+.leading-relaxed  { line-height: 1.625; }
+.not-italic       { font-style: normal !important; }
+.fw-black         { font-weight: 900; }
+
+/* ─── Layout custom ─── */
+.max-content  { max-width: 1400px; }
+.min-vh-100   { min-height: 100vh; }
+
+/* ─── Line clamp ─── */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Border void ─── */
+.border-void-border { border-color: var(--void-border) !important; }
+
+/* ─── Page transitions ─── */
+.page-enter-active, .page-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.page-enter-from { opacity: 0; transform: translateY(12px); }
+.page-leave-to   { opacity: 0; transform: translateY(-8px); }
+
+/* ─── Blood drip animation ─── */
+.blood-drips { display: flex; justify-content: center; gap: 2.5rem; margin-top: 1rem; }
+.blood-drip {
+  width: 3px;
+  background: linear-gradient(180deg, #8b0000 0%, transparent 100%);
+  border-radius: 0 0 50% 50%;
+  animation: drip 3s ease-in-out infinite;
+}
+.blood-drip:nth-child(1) { height: 28px; animation-delay: 0s; }
+.blood-drip:nth-child(2) { height: 40px; animation-delay: 0.6s; }
+.blood-drip:nth-child(3) { height: 22px; animation-delay: 1.2s; }
+.blood-drip:nth-child(4) { height: 35px; animation-delay: 0.3s; }
+.blood-drip:nth-child(5) { height: 18px; animation-delay: 0.9s; }
+
+@keyframes drip {
+  0%, 100% { transform: scaleY(1); opacity: 0.7; }
+  50%       { transform: scaleY(1.15); opacity: 1; }
+}
+
+/* ─── Search input ─── */
+.search-input {
+  width: 100%;
+  background: #1a1628;
+  border: 1px solid #2e2040;
+  border-radius: 6px;
+  padding: 0.65rem 1rem 0.65rem 2.6rem;
+  color: #d4c9b8;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a7f70' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.75rem center;
+  background-size: 1.1rem;
+}
+.search-input:focus {
+  border-color: #8b0000;
+  box-shadow: 0 0 0 2px rgba(139,0,0,0.2);
+}
+.search-input::placeholder { color: #504840; }
+
+/* ─── Discipline card ─── */
+.discipline-card {
+  background: #13101e;
+  border: 1px solid #2e2040;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.discipline-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--card-color, #5a3070);
+  box-shadow: 0 8px 32px var(--card-glow, rgba(90,48,112,0.3));
+}
+.discipline-card:active { transform: translateY(-2px); }
+.discipline-card:focus-visible {
+  outline: 2px solid var(--card-color, #8b0000);
+  outline-offset: 2px;
+}
+
+.discipline-card-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 9rem; /* 144px default mobile */
+}
+@media (min-width: 576px) { .discipline-card-art { height: 12rem; } }
+
+.art-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, #13101e 100%);
+  z-index: 2;
+}
+
+/* Icon inside art */
+.art-icon {
+  position: relative;
+  z-index: 10;
+  width: 5rem; height: 5rem;
+  display: flex; align-items: center; justify-content: center;
+}
+@media (min-width: 576px) { .art-icon { width: 7rem; height: 7rem; } }
+
+/* ─── Badges ─── */
+.badge-tipo, .badge-clanes {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+  border-radius: 3px;
+  border: 1px solid;
+  font-weight: 600;
+}
+.badge-tipo {
+  color: var(--card-color, #c9a84c);
+  border-color: var(--card-color, #8a6a2a);
+  background: rgba(0,0,0,0.3);
+}
+.badge-clanes {
+  color: #a09890;
+  border-color: #2e2040;
+  background: rgba(0,0,0,0.2);
+  font-size: 0.78rem;
+}
+
+/* ─── Power card ─── */
+.power-card {
+  background: #13101e;
+  border: 1px solid #2e2040;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  min-height: 44px;
+}
+.power-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--card-color, #5a3070);
+  box-shadow: 0 12px 40px var(--card-glow, rgba(90,48,112,0.35));
+}
+.power-card:focus-visible {
+  outline: 2px solid var(--card-color, #8b0000);
+  outline-offset: 2px;
+}
+
+.power-card-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 7rem;
+}
+@media (min-width: 576px) { .power-card-art { height: 10rem; } }
+
+.power-art-icon {
+  width: 4rem; height: 4rem;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 10; opacity: 0.85;
+}
+@media (min-width: 576px) { .power-art-icon { width: 5rem; height: 5rem; } }
+
+.power-level-badge {
+  position: absolute;
+  top: 0.6rem; left: 0.6rem;
+  z-index: 3;
+  font-size: 0.78rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid var(--card-color, #2e2040);
+  color: #d4c9b8;
+}
+.power-level-dots-card {
+  position: absolute;
+  bottom: 0.7rem; right: 0.7rem;
+  z-index: 3;
+  display: flex;
+  gap: 0.25rem;
+}
+.power-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--card-color, #5a3070);
+}
+.power-dot.filled { background: var(--card-color, #5a3070); }
+
+/* ─── Discipline page icon ─── */
+.discipline-page-icon {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--card-color, #5a3070);
+  box-shadow: 0 0 24px var(--card-glow, rgba(90,48,112,0.3));
+  width: 6rem; height: 6rem;
+}
+@media (min-width: 576px) { .discipline-page-icon { width: 8rem; height: 8rem; } }
+
+.disc-icon-inner {
+  width: 3.5rem; height: 3.5rem;
+  display: flex; align-items: center; justify-content: center;
+}
+@media (min-width: 576px) { .disc-icon-inner { width: 5rem; height: 5rem; } }
+
+/* ─── Back button ─── */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #8a7f70;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #2e2040;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition);
+  background: transparent;
+  min-height: 44px;
+}
+.back-btn:hover { color: #d4c9b8; border-color: #5a3070; background: #1a1628; }
+.back-btn svg { width: 14px; height: 14px; }
+
+/* ─── Power detail ─── */
+.power-detail-card {
+  background: #13101e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+}
+.power-detail-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 13rem;
+}
+@media (min-width: 576px) { .power-detail-art { height: 16rem; } }
+@media (min-width: 768px) { .power-detail-art { height: 18rem; } }
+
+.power-detail-art-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, #13101e 100%);
+  z-index: 2;
+}
+.power-detail-level-dots {
+  position: absolute;
+  top: 1rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 3;
+}
+.power-detail-icon {
+  width: 8rem; height: 8rem;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 10;
+}
+@media (min-width: 576px) { .power-detail-icon { width: 10rem; height: 10rem; } }
+
+.power-detail-discipline-tag {
+  position: absolute;
+  bottom: 1rem; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,0,0,0.8);
+  border: 1px solid var(--card-color, #2e2040);
+  border-radius: 20px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d4c9b8;
+  white-space: nowrap;
+}
+
+/* ─── Power stats table ─── */
+.pst {
+  border: 1px solid var(--void-border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.pst-row {
+  display: block;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid var(--void-border);
+}
+.pst-row:last-child { border-bottom: none; }
+.pst-row:nth-child(odd) { background: rgba(255,255,255,0.025); }
+.pst-key {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+.pst-val {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--parchment);
+  line-height: 1.45;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+@media (min-width: 576px) {
+  .pst-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.65rem 1rem;
+  }
+  .pst-key { margin-bottom: 0; font-size: 0.82rem; }
+}
+
+/* ─── Ornament divider ─── */
+.ornament-divider {
+  text-align: center;
+  color: #504840;
+  font-size: 1.2rem;
+  letter-spacing: 0.6em;
+}
+
+/* ─── Amalgama note ─── */
+.amalgama-note {
+  padding: 0.75rem 1rem;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid #8a6a2a;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #a08030;
+  line-height: 1.5;
+}
+.amalgama-note strong { color: #c9a84c; }
+
+/* ─── Focus visible global ─── */
+:focus-visible { outline: 2px solid #8b0000; outline-offset: 2px; }
+
+/* ─── Bootstrap overrides específicos ─── */
+/* Bootstrap puede poner márgenes en p que no queremos */
+.power-card p, .discipline-card p { margin-bottom: 0; }
+/* Evitar que Bootstrap coloree links dentro de nuestros cards */
+.discipline-card a, .power-card a { color: inherit; }
