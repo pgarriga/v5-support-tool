@@ -6,12 +6,14 @@ import { powerById, levelDots, artGradient, parseAmalgama } from '../helpers'
 import { useI18n } from '../composables/useI18n'
 import { useData } from '../composables/useData'
 import { useNotes } from '../composables/useNotes'
+import { useFavorites } from '../composables/useFavorites'
 
 const route  = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const { disciplineById, disciplines } = useData()
 const { getNote, setNote } = useNotes()
+const { isFavorite, toggle } = useFavorites()
 
 const discipline = computed(() => disciplineById(route.params['id'] as string))
 const power      = computed(() => powerById(discipline.value, route.params['powerId'] as string))
@@ -87,6 +89,12 @@ function goBack(): void { router.push(`/disciplina/${route.params['id']}`) }
 
           <div class="power-detail-art-overlay"></div>
         </div>
+
+        <button class="star-btn star-btn--detail"
+                :class="{ 'star-btn--filled': isFavorite(discipline.id, power.id) }"
+                @click="toggle(discipline.id, power.id)"
+                :title="isFavorite(discipline.id, power.id) ? t.discipline.removeFromFav : t.discipline.addToFav"
+                :aria-label="isFavorite(discipline.id, power.id) ? t.discipline.removeFromFav : t.discipline.addToFav">★</button>
 
         <!-- Content -->
         <div class="px-3 px-sm-4 px-md-5 py-4 py-sm-5">

@@ -360,6 +360,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── Power detail ─── */
 .power-detail-card {
+  position: relative;
   background: var(--void-card);
   border-radius: 12px;
   overflow: hidden;
@@ -522,6 +523,13 @@ a { text-decoration: none; color: inherit; }
 .star-btn:hover { color: var(--gold); border-color: var(--gold-dim); }
 .star-btn--filled { color: var(--gold); border-color: var(--gold-dim); }
 [data-theme="light"] .star-btn { background: rgba(255,255,255,0.75); }
+
+/* Larger star in PowerView detail art */
+.star-btn--detail {
+  width: 40px; height: 40px;
+  font-size: 1.1rem;
+  top: 0.75rem; right: 0.75rem;
+}
 
 /* ─── Discipline group icon (Mis Poderes) ─── */
 .disc-group-icon {
