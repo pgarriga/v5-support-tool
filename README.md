@@ -2,11 +2,13 @@
 
 A support tool for **Vampire: The Masquerade 5th Edition** tabletop sessions. Quickly browse disciplines and powers, save your character's powers for easy reference at the table — no registration or account required.
 
+**🌐 Live:** https://pgarriga.github.io/v5-support-tool/
+
 > For detailed rules and lore, always refer to the official **Vampire: The Masquerade 5th Edition** rulebook.
 
 ---
 
-![Version](https://img.shields.io/badge/version-1.8.0-8b0000?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.8.1-8b0000?style=flat-square)
 ![Vue](https://img.shields.io/badge/Vue-3.5.13-4FC08D?style=flat-square&logo=vue.js&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-6.3.1-646CFF?style=flat-square&logo=vite&logoColor=white)
@@ -64,7 +66,7 @@ V5 Support Tool/
         ├── HomeView.vue       # Discipline grid with search
         ├── DisciplineView.vue # Power grid for a discipline
         ├── PowerView.vue      # Power detail card
-        ├── MisPoderesView.vue # Saved powers grouped by discipline and level
+        ├── MyPowersView.vue   # Saved powers grouped by discipline and level
         └── SettingsView.vue   # Theme and language settings
 ```
 
@@ -73,10 +75,10 @@ V5 Support Tool/
 | Hash | View | Description |
 |------|------|-------------|
 | `#/` | HomeView | Grid of all 11 disciplines with search |
-| `#/disciplina/:id` | DisciplineView | Power grid with star to save |
-| `#/disciplina/:id/poder/:powerId` | PowerView | Power detail card |
-| `#/mis-poderes` | MisPoderesView | Saved powers by discipline and level |
-| `#/ajustes` | SettingsView | Theme and language settings |
+| `#/discipline/:id` | DisciplineView | Power grid with star to save |
+| `#/discipline/:id/power/:powerId` | PowerView | Power detail card |
+| `#/my-powers` | MyPowersView | Saved powers by discipline and level |
+| `#/settings` | SettingsView | Theme and language settings |
 
 ## Local Development
 
