@@ -116,10 +116,10 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
 
               <div class="art-overlay" :style="{ background: 'linear-gradient(180deg, transparent 30%, var(--void-card) 100%)' }"></div>
               <button class="star-btn"
-                      :class="{ 'star-btn--filled': isFavorite(discipline!.id, power.id) }"
-                      @click.stop="toggle(discipline!.id, power.id)"
-                      :title="isFavorite(discipline!.id, power.id) ? t.discipline.removeFromFav : t.discipline.addToFav"
-                      :aria-label="isFavorite(discipline!.id, power.id) ? t.discipline.removeFromFav : t.discipline.addToFav">★</button>
+                      :class="{ 'star-btn--filled': isFavorite(discipline.id, power.id) }"
+                      @click.stop="toggle(discipline.id, power.id)"
+                      :title="isFavorite(discipline.id, power.id) ? t.discipline.removeFromFav : t.discipline.addToFav"
+                      :aria-label="isFavorite(discipline.id, power.id) ? t.discipline.removeFromFav : t.discipline.addToFav">★</button>
             </div>
 
             <!-- Card body -->

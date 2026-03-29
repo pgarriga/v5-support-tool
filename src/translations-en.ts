@@ -1,7 +1,7 @@
 // English translations overlay for VtM V5 discipline/power data
 // Applied over the Spanish base data when language is set to English
 
-type PowerTranslation = {
+export type PowerTranslation = {
   name: string
   cost: string
   dicePool: string
@@ -10,7 +10,7 @@ type PowerTranslation = {
   amalgama?: string
 }
 
-type DisciplineTranslation = {
+export type DisciplineTranslation = {
   name: string
   description: string
   tipo: string
@@ -20,7 +20,21 @@ type DisciplineTranslation = {
   powers: Record<string, PowerTranslation>
 }
 
-export const EN: Record<string, DisciplineTranslation> = {
+// All discipline IDs — typed so a typo in EN's keys is a compile error
+type DisciplineId =
+  | 'animalismo'
+  | 'auspex'
+  | 'celeridad'
+  | 'dominacion'
+  | 'fortaleza'
+  | 'ofuscacion'
+  | 'potencia'
+  | 'presencia'
+  | 'protean'
+  | 'hechiceria-de-sangre'
+  | 'alquimia-de-sangre-debil'
+
+export const EN: Record<DisciplineId, DisciplineTranslation> = {
 
   // ── ANIMALISM ────────────────────────────────────────────────────────────────
   animalismo: {

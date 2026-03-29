@@ -1,12 +1,12 @@
 import { computed } from 'vue'
 import { DISCIPLINES_DATA } from '../data'
-import { EN } from '../translations-en'
+import { EN, type DisciplineTranslation } from '../translations-en'
 import { useSettings } from './useSettings'
 import type { Discipline } from '../types'
 
 function applyEnglish(disciplines: Discipline[]): Discipline[] {
   return disciplines.map(d => {
-    const tr = EN[d.id]
+    const tr: DisciplineTranslation | undefined = EN[d.id as keyof typeof EN]
     if (!tr) return d
     return {
       ...d,
