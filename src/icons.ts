@@ -1,4 +1,6 @@
-export const DISCIPLINE_ICONS: Record<string, string> =
+import type { IconType } from './types'
+
+export const DISCIPLINE_ICONS: Record<IconType, string> =
 
 {
 

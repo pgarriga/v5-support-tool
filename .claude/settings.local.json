@@ -12,7 +12,9 @@
       "Bash(npm run:*)",
       "Bash(git config:*)",
       "Bash(gh auth:*)",
-      "Bash(npm version:*)"
+      "Bash(npm version:*)",
+      "Bash(curl:*)",
+      "Bash(gh run:*)"
     ]
   }
 }

@@ -42,7 +42,8 @@ function goPower(pid: string): void { router.push(`/disciplina/${route.params['i
 
       <!-- Icon -->
       <div class="discipline-page-icon flex-shrink-0"
-           :style="{ background: artGradient(discipline) }">
+           :style="{ background: artGradient(discipline) }"
+           aria-hidden="true">
         <div v-html="DISCIPLINE_ICONS[discipline.iconType]"
              :style="{ color: discipline.color }"
              class="disc-icon-inner"></div>

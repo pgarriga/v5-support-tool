@@ -468,6 +468,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── Focus visible global ─── */
 :focus-visible { outline: 2px solid #8b0000; outline-offset: 2px; }
+[data-theme="light"] :focus-visible { outline-color: var(--gold-dim); }
 
 /* ─── Bootstrap overrides específicos ─── */
 .power-card p, .discipline-card p { margin-bottom: 0; }
@@ -622,3 +623,107 @@ a { text-decoration: none; color: inherit; }
   background: var(--void-card2);
   box-shadow: 0 0 12px rgba(201,168,76,0.15);
 }
+
+/* ─── Filter chips (HomeView) ─── */
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.filter-chip {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--void-border);
+  border-radius: 20px;
+  background: var(--void-card);
+  color: var(--parchment-dim);
+  cursor: pointer;
+  transition: all var(--transition);
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+}
+.filter-chip:hover { color: var(--parchment); border-color: #5a3070; }
+.filter-chip.active {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+  background: var(--void-card2);
+}
+
+/* ─── Power notes (PowerView) ─── */
+.power-notes {
+  margin-top: 1.5rem;
+}
+.power-notes-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.power-notes-hint {
+  font-size: 0.75rem;
+  color: var(--parchment-faint);
+  font-style: italic;
+  margin-left: auto;
+}
+.power-notes-textarea {
+  width: 100%;
+  background: var(--void-card2);
+  border: 1px solid var(--void-border);
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  color: var(--parchment);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 80px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.power-notes-textarea:focus {
+  border-color: var(--gold-dim);
+  box-shadow: 0 0 0 2px rgba(201,168,76,0.12);
+}
+.power-notes-textarea::placeholder { color: var(--parchment-faint); }
+
+/* ─── Amalgam link ─── */
+.amalgama-link {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: var(--gold-dim);
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.amalgama-link:hover { color: #e0bf72; }
+
+/* ─── Copy button (MisPoderesView) ─── */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--parchment-dim);
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--void-border);
+  border-radius: 6px;
+  background: var(--void-card);
+  cursor: pointer;
+  transition: all var(--transition);
+  min-height: 36px;
+}
+.copy-btn:hover { color: var(--parchment); border-color: #5a3070; background: var(--void-card2); }
+.copy-btn.copied { color: var(--gold); border-color: var(--gold-dim); }

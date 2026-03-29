@@ -14,8 +14,10 @@ function loadFromStorage(): string[] {
   }
 }
 
-function save() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites.value))
+function save(): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites.value))
+  } catch { /* unavailable */ }
 }
 
 export function useFavorites() {

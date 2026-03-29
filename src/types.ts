@@ -1,3 +1,7 @@
+export type IconType =
+  | 'wolf' | 'eye' | 'bolt' | 'crown' | 'shield'
+  | 'ghost' | 'fist' | 'rose' | 'claws' | 'blood' | 'flask'
+
 export interface Power {
   id: string
   name: string
@@ -20,7 +24,7 @@ export interface Discipline {
   colorDark: string
   colorGlow: string
   clanes: string[]
-  iconType: string
+  iconType: IconType
   powers: Power[]
 }
 
