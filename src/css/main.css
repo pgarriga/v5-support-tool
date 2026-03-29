@@ -44,7 +44,10 @@
 }
 
 /* ─── Base ─── */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* prevent horizontal overflow from expanding page width on iOS */
+}
 
 body {
   font-family: var(--font-body);
@@ -52,6 +55,7 @@ body {
   background-color: var(--void);
   color: var(--parchment);
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -87,13 +91,12 @@ a { text-decoration: none; color: inherit; }
 .max-content  { max-width: 1400px; }
 
 /* Fix: navbar sticky (~56px) + min-vh-100 (100vh) = página siempre más larga que el viewport.
-   Hacemos que #app sea el contenedor flex y las vistas rellenen el espacio restante.
-   dvh = dynamic viewport height (iOS Safari ajusta correctamente la barra de URL). */
+   --app-height se actualiza por JS con el viewport visible real (fix para iOS Safari donde
+   100vh incluye la URL bar). dvh como segundo fallback para iOS 15.4+. */
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: var(--app-height, 100dvh);
 }
 .min-vh-100 {
   flex: 1;
