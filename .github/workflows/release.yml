@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get package version
+        id: pkg
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Get latest release version
+        id: latest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LATEST=$(gh release list --limit 1 --json tagName --jq '.[0].tagName // "v0.0.0"')
+          echo "version=${LATEST#v}" >> $GITHUB_OUTPUT
+
+      - name: Compare versions
+        id: check
+        run: |
+          PKG="${{ steps.pkg.outputs.version }}"
+          LATEST="${{ steps.latest.outputs.version }}"
+          if [ "$(printf '%s\n' "$LATEST" "$PKG" | sort -V | tail -1)" = "$PKG" ] && [ "$PKG" != "$LATEST" ]; then
+            echo "should_release=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_release=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build
+        if: steps.check.outputs.should_release == 'true'
+        run: npm ci && npm run build
+
+      - name: Create release
+        if: steps.check.outputs.should_release == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "v${{ steps.pkg.outputs.version }}" \
+            --title "v${{ steps.pkg.outputs.version }}" \
+            --generate-notes
