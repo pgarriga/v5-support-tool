@@ -1,6 +1,8 @@
-# V5 Support Tool · Vampiro: La Mascarada
+# V5 Support Tool · Vampire: The Masquerade
 
-Herramienta de soporte para partidas de rol de **Vampiro: La Mascarada 5ª Edición**. Consulta rápida de disciplinas y poderes, con posibilidad de guardar los poderes de tu personaje.
+A support tool for **Vampire: The Masquerade 5th Edition** tabletop sessions. Quickly browse disciplines and powers, save your character's powers for easy reference at the table — no registration or account required.
+
+> For detailed rules and lore, always refer to the official **Vampire: The Masquerade 5th Edition** rulebook.
 
 ---
 
@@ -12,102 +14,110 @@ Herramienta de soporte para partidas de rol de **Vampiro: La Mascarada 5ª Edici
 
 ---
 
-## Características
+## Features
 
-- **11 disciplinas** con iconografía gótica SVG
-- **~96 poderes** con reserva de dados, coste, duración y descripción
-- **Búsqueda** por nombre de disciplina, clan o tipo
-- **Mis Poderes** — guarda los poderes de tu personaje con una estrella; persisten en `localStorage`
-- **Sin backend** — web estática pura, sin servidor, funciona offline
-- Responsive con Bootstrap 5 (2 → 5 columnas según pantalla)
-- Accesible: navegación por teclado, ARIA labels
+- **11 disciplines** with gothic SVG iconography
+- **~96 powers** with dice pool, cost, duration and description
+- **Search** by discipline name, clan or type
+- **My Powers** — bookmark your character's powers with a star; persists in `localStorage`
+- **No registration required** — pure static web app, no server, works offline
+- **Bilingual** — Spanish and English (auto-detected from browser language)
+- **Theming** — dark, light and auto (follows system preference)
+- Responsive with Bootstrap 5 (2 → 5 columns depending on screen size)
+- Accessible: keyboard navigation, ARIA labels
 
-## Stack técnico
+## Tech Stack
 
-| Tecnología | Versión | Rol |
-|------------|---------|-----|
-| Vue 3 | 3.5.13 | Framework reactivo (SFCs + Composition API + TypeScript) |
-| Vue Router | 4.5.0 | Navegación hash (`#/ruta`) |
-| Bootstrap | 5.3.3 | Navbar, grid responsive y utilidades CSS |
-| Vite | 6.3.1 | Bundler y servidor de desarrollo |
-| TypeScript | 5.7.3 | Tipado estático |
+| Technology | Version | Role |
+|------------|---------|------|
+| Vue 3 | 3.5.13 | Reactive framework (SFCs + Composition API + TypeScript) |
+| Vue Router | 4.5.0 | Hash navigation (`#/route`) |
+| Bootstrap | 5.3.3 | Navbar, responsive grid and CSS utilities |
+| Vite | 6.3.1 | Bundler and dev server |
+| TypeScript | 5.7.3 | Static typing |
 
-## Estructura del proyecto
+## Project Structure
 
 ```
 V5 Support Tool/
-├── index.html                 # Entrada Vite
+├── index.html                 # Vite entry point
 ├── vite.config.ts
 ├── tsconfig.json
 ├── package.json
 └── src/
     ├── main.ts                # Bootstrap CSS/JS + Vue app
-    ├── App.vue                # Navbar Bootstrap + transiciones de página
-    ├── router.ts              # Rutas hash
-    ├── types.ts               # Interfaces TypeScript (Discipline, Power)
-    ├── data.ts                # Las 11 disciplinas y ~96 poderes
-    ├── icons.ts               # SVGs góticos por disciplina
-    ├── helpers.ts             # Funciones puras (shortCost, artGradient…)
+    ├── App.vue                # Bootstrap navbar + page transitions
+    ├── router.ts              # Hash routes
+    ├── types.ts               # TypeScript interfaces (Discipline, Power)
+    ├── data.ts                # The 11 disciplines and ~96 powers (Spanish source)
+    ├── translations-en.ts     # English translations overlay
+    ├── icons.ts               # Gothic SVGs per discipline
+    ├── helpers.ts             # Pure functions (shortCost, artGradient…)
     ├── composables/
-    │   └── useFavorites.ts    # Estado de Mis Poderes (localStorage)
+    │   ├── useFavorites.ts    # My Powers state (localStorage)
+    │   ├── useSettings.ts     # Theme and language preferences
+    │   ├── useI18n.ts         # UI string translations
+    │   └── useData.ts         # Localized discipline/power data
     ├── css/
-    │   └── main.css           # Estilos góticos custom + overrides Bootstrap
+    │   └── main.css           # Custom gothic styles + Bootstrap overrides
     └── views/
-        ├── HomeView.vue       # Grid de disciplinas con buscador
-        ├── DisciplineView.vue # Baraja de poderes de una disciplina
-        ├── PowerView.vue      # Carta detalle de un poder
-        └── MisPoderesView.vue # Poderes guardados, agrupados por disciplina y nivel
+        ├── HomeView.vue       # Discipline grid with search
+        ├── DisciplineView.vue # Power grid for a discipline
+        ├── PowerView.vue      # Power detail card
+        ├── MisPoderesView.vue # Saved powers grouped by discipline and level
+        └── SettingsView.vue   # Theme and language settings
 ```
 
-## Rutas
+## Routes
 
-| Hash | Vista | Descripción |
-|------|-------|-------------|
-| `#/` | HomeView | Grid de las 11 disciplinas con buscador |
-| `#/disciplina/:id` | DisciplineView | Baraja de poderes con estrella para guardar |
-| `#/disciplina/:id/poder/:powerId` | PowerView | Carta detalle de un poder |
-| `#/mis-poderes` | MisPoderesView | Poderes guardados, por disciplina y nivel |
+| Hash | View | Description |
+|------|------|-------------|
+| `#/` | HomeView | Grid of all 11 disciplines with search |
+| `#/disciplina/:id` | DisciplineView | Power grid with star to save |
+| `#/disciplina/:id/poder/:powerId` | PowerView | Power detail card |
+| `#/mis-poderes` | MisPoderesView | Saved powers by discipline and level |
+| `#/ajustes` | SettingsView | Theme and language settings |
 
-## Instalación y uso
+## Local Development
 
 ```bash
-# Instalar dependencias (WSL2 sobre Windows)
+# Install dependencies (WSL2 on Windows)
 npm install --no-bin-links --ignore-scripts
 
-# Servidor de desarrollo
+# Dev server
 npm run dev
 # → http://localhost:5173
 
-# Build de producción
+# Production build
 npm run build
 # → dist/
 
-# Previsualizar build
+# Preview build
 npm run preview
 ```
 
-> **Nota WSL2:** Los scripts usan `node node_modules/vite/bin/vite.js` en lugar del binario `vite` para evitar problemas de permisos en el sistema de archivos de Windows.
+> **WSL2 note:** Scripts use `node node_modules/vite/bin/vite.js` instead of the `vite` binary to avoid file system permission issues on Windows.
 
-## Datos
+## Data
 
-Fuente: PDF oficial español *Vampiro La Mascarada 5ª Edición — Disciplinas*.
+Source: official Spanish PDF *Vampiro La Mascarada 5ª Edición — Disciplinas*.
 
-Los datos se encuentran en `src/data.ts`. Para añadir o editar un poder, edita directamente ese archivo manteniendo la estructura de tipos definida en `src/types.ts`.
+Data lives in `src/data.ts`. English translations are in `src/translations-en.ts`. To add or edit a power, update those files directly, following the types defined in `src/types.ts`.
 
-## Iconografía
+## Icons
 
-Los iconos SVG están en `src/icons.ts`. Cada icono usa `currentColor` para heredar el color temático de la disciplina. ViewBox `0 0 100 100`.
+SVG icons are in `src/icons.ts`. Each icon uses `currentColor` to inherit the discipline's theme color. ViewBox `0 0 100 100`.
 
-| Clave | Disciplina |
-|-------|-----------|
-| `wolf` | Animalismo |
+| Key | Discipline |
+|-----|-----------|
+| `wolf` | Animalism |
 | `eye` | Auspex |
-| `bolt` | Celeridad |
-| `crown` | Dominación |
-| `shield` | Fortaleza |
-| `ghost` | Ofuscación |
-| `fist` | Potencia |
-| `rose` | Presencia |
+| `bolt` | Celerity |
+| `crown` | Dominate |
+| `shield` | Fortitude |
+| `ghost` | Obfuscation |
+| `fist` | Potence |
+| `rose` | Presence |
 | `claws` | Protean |
-| `blood` | Hechicería de Sangre |
-| `flask` | Alquimia de Sangre Débil |
+| `blood` | Blood Sorcery |
+| `flask` | Thin-Blood Alchemy |
