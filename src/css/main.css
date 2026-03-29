@@ -85,7 +85,20 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── Layout custom ─── */
 .max-content  { max-width: 1400px; }
-.min-vh-100   { min-height: 100vh; }
+
+/* Fix: navbar sticky (~56px) + min-vh-100 (100vh) = página siempre más larga que el viewport.
+   Hacemos que #app sea el contenedor flex y las vistas rellenen el espacio restante.
+   dvh = dynamic viewport height (iOS Safari ajusta correctamente la barra de URL). */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.min-vh-100 {
+  flex: 1;
+  min-height: 0 !important;
+}
 
 /* ─── Line clamp ─── */
 .line-clamp-3 {
