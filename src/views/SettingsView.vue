@@ -88,7 +88,7 @@ const langOptions = computed(() => [
 
     </div>
 
-    <footer class="text-center pb-5 opacity-25" style="font-size: 0.95rem;">
+    <footer class="text-center pb-5 opacity-50" style="font-size: 1.05rem; font-weight: 600;">
       v{{ version }} &nbsp;·&nbsp;
       <a href="https://github.com/pgarriga/v5-support-tool" target="_blank" rel="noopener">GitHub</a>
     </footer>

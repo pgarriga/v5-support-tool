@@ -42,7 +42,10 @@ const amalgamaSegments = computed(() => {
   return parseAmalgama(text, disciplines.value)
 })
 
-function goBack(): void { router.push(`/discipline/${route.params['id']}`) }
+function goBack(): void {
+  if (route.query['from'] === 'my-powers') router.push('/my-powers')
+  else router.push(`/discipline/${route.params['id']}`)
+}
 </script>
 
 <template>
@@ -55,7 +58,7 @@ function goBack(): void { router.push(`/discipline/${route.params['id']}`) }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="m15 18-6-6 6-6"/>
         </svg>
-        {{ discipline.name }}
+        {{ route.query['from'] === 'my-powers' ? t.myPowers.title : discipline.name }}
       </button>
       <span class="text-parchment-faint">›</span>
       <span class="text-parchment text-truncate">{{ power.name }}</span>

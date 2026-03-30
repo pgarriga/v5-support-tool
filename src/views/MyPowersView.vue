@@ -31,7 +31,7 @@ const totalCount = computed(() =>
 )
 
 function goPower(discId: string, powerId: string) {
-  router.push(`/discipline/${discId}/power/${powerId}`)
+  router.push(`/discipline/${discId}/power/${powerId}?from=my-powers`)
 }
 
 function powerCountLabel(n: number): string {
