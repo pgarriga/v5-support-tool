@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { version } from '../../package.json'
 import { useSettings, type Theme, type Lang } from '../composables/useSettings'
 import { useI18n } from '../composables/useI18n'
 
@@ -86,5 +87,10 @@ const langOptions = computed(() => [
       </section>
 
     </div>
+
+    <footer class="text-center pb-5 opacity-25" style="font-size: 0.95rem;">
+      v{{ version }} &nbsp;·&nbsp;
+      <a href="https://github.com/pgarriga/v5-support-tool" target="_blank" rel="noopener">GitHub</a>
+    </footer>
   </div>
 </template>
