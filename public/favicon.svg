@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
+    <!-- Gradiente lateral para dar volumen (luz desde la izquierda) -->
     <linearGradient id="fangGradL" x1="31" y1="0" x2="42" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="60%" stop-color="#e8e4d8"/>
@@ -10,6 +11,8 @@
       <stop offset="60%" stop-color="#e8e4d8"/>
       <stop offset="100%" stop-color="#a8a49a"/>
     </linearGradient>
+
+    <!-- Glow rojo en la punta -->
     <radialGradient id="tipGlowL" cx="36.5" cy="82" r="14" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#c0000a" stop-opacity="0.75"/>
       <stop offset="100%" stop-color="#8b0000" stop-opacity="0"/>
@@ -18,6 +21,8 @@
       <stop offset="0%" stop-color="#c0000a" stop-opacity="0.75"/>
       <stop offset="100%" stop-color="#8b0000" stop-opacity="0"/>
     </radialGradient>
+
+    <!-- Clip paths para que el glow no salga del colmillo -->
     <clipPath id="clipL">
       <path d="M31,18 L42,18 Q40,52 36.5,84 Q33,52 31,18 Z"/>
     </clipPath>
@@ -26,11 +31,14 @@
     </clipPath>
   </defs>
 
+  <!-- Fondo oscuro redondeado -->
   <rect width="100" height="100" rx="18" fill="#0d0b14"/>
 
+  <!-- Colmillo izquierdo -->
   <path d="M31,18 L42,18 Q40,52 36.5,84 Q33,52 31,18 Z" fill="url(#fangGradL)"/>
   <rect x="0" y="0" width="100" height="100" fill="url(#tipGlowL)" clip-path="url(#clipL)"/>
 
+  <!-- Colmillo derecho -->
   <path d="M58,18 L69,18 Q67,52 63.5,84 Q60,52 58,18 Z" fill="url(#fangGradR)"/>
   <rect x="0" y="0" width="100" height="100" fill="url(#tipGlowR)" clip-path="url(#clipR)"/>
 </svg>
