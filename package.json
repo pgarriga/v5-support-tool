@@ -9,16 +9,16 @@
     "version": "node -e \"const fs=require('fs');const v=require('./package.json').version;const r=fs.readFileSync('README.md','utf8');fs.writeFileSync('README.md',r.replace(/version-[\\d.]+/,'version-'+v));\" && git add README.md"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "bootstrap": "^5.3.8",
+    "vue": "^3.5.31",
+    "vue-router": "^5.0.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue": "^6.0.5",
     "sharp": "^0.34.5",
-    "typescript": "^5.7.3",
-    "vite": "^6.3.1",
+    "typescript": "^6.0.2",
+    "vite": "^7.3.1",
     "vite-plugin-pwa": "^1.2.0",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^3.2.6"
   }
 }
